@@ -1,0 +1,19 @@
+{
+  "name": "bot2",
+  "version": "1.0.0",
+  "description": "bot practice 2",
+  "main": "#index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u0016\u0016\u0016https://github.com/KaiWhen/bot2/"
+  },
+  "author": "KaiWhen",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "moment": "^2.22.2"
+  }
+}
