@@ -3,6 +3,7 @@ const botconfig = require("./botconfig.json");
 const bot = new Discord.Client({disableEveryone: true});
 const rps = require("./commands/rps.js");
 const botinfo = require("./commands/botinfo.js");
+const quickmaths = require("./commands/quickmaths.js");
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is running`);
