@@ -61,7 +61,6 @@ let args = messageArray.slice(1);
     }
 
     function arAns(){
-        arithRnd = Math.floor(Math.random()*10);
         if(arithRnd == 0 && arithAct == true){
             message.channel.send("**" + arithE[arithRnd] + "**");
             n++;
@@ -94,4 +93,4 @@ let args = messageArray.slice(1);
     }
 });
 
-bot.login(botconfig.token);
+//bot.login(botconfig.token);
