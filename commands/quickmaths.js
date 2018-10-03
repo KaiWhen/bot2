@@ -6,6 +6,8 @@ bot.on("ready", async () => {
     console.log("quickmaths.js is running")
 });
 
+var n;
+var aract = false;
 var arithAct = false;
 var arithRnd;
 var timeout;
@@ -23,14 +25,11 @@ arithE[7] = "6 + 9";
 arithE[8] = "13 - 7";
 arithE[9] = "5 + 11";
 
-function timeo(){
-    message.channel.send("you suck");
-}
 
 bot.on("message", async message => {
 
     function timeo(){
-        message.channel.send("you suck");
+        let arithAct = false;
     }
 
 if(message.author.bot) return;
@@ -56,30 +55,36 @@ let args = messageArray.slice(1);
         return;
     }
 
+    function arRnd(){
+        arithRnd = Math.floor(Math.random()*10);
+        aract = true;
+    }
+
+    function arAns(){
+        arithRnd = Math.floor(Math.random()*10);
+        if(arithRnd == 0 && arithAct == true){
+            message.channel.send("**" + arithE[arithRnd] + "**");
+            n++;
+            aract = false;
+            if(message.content = eval(arithE[0])){
+                message.channel.send("**Correct! Next question!**");
+                aract = true;
+            }
+        }
+    }
     
 
     if(cmd === `${prefix}arithE`){
         arithAct = true;
         timeout = false;
-        let n = 0;
-           // if(arithAct === true && n === 0){
-                rnd = Math.floor(Math.random()*10);
-                message.channel.send("**" + arithE[rnd] + "**");
-                ans = eval(arithE[rnd]);
-                ansn = ans.toString();
-                //message.channel.send(ansn);
-                setTimeout(timeo, 10000);
-            
-                if(message.content === ansn){
-                    return message.channel.send("**Correct! Next question!**");
-                    n++;
-                }
-                else if(message.content === "you suck"){
-                    message.channel.send("**WRONG! YOU SUCK.**");
-                    message.channel.send("You failed! Better luck next time.");
-                    
-                }
-           // }
+        aract = false;
+        n = 0;
+        
+        arRnd();
+        while(n < 10 && aract == true){
+            arAns();
+        }
+           
             
     }
 
