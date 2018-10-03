@@ -29,6 +29,10 @@ function timeo(){
 
 bot.on("message", async message => {
 
+    function timeo(){
+        message.channel.send("you suck");
+    }
+
 if(message.author.bot) return;
 if(message.channel.type === "dm") return;
 
