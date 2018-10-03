@@ -23,7 +23,9 @@ arithE[7] = "6 + 9";
 arithE[8] = "13 - 7";
 arithE[9] = "5 + 11";
 
-
+function timeo(){
+    message.channel.send("you suck");
+}
 
 bot.on("message", async message => {
 
@@ -50,9 +52,7 @@ let args = messageArray.slice(1);
         return;
     }
 
-    function timeo(){
-        message.channel.send("you suck");
-    }
+    
 
     if(cmd === `${prefix}arithE`){
         arithAct = true;
@@ -64,18 +64,18 @@ let args = messageArray.slice(1);
                 ans = eval(arithE[rnd]);
                 ansn = ans.toString();
                 //message.channel.send(ansn);
-                //setTimeout(timeo, 10000);
+                setTimeout(timeo, 10000);
             
                 if(message.content === ansn){
                     return message.channel.send("**Correct! Next question!**");
                     n++;
                 }
-                //else if(message.content != ans){
-                   // message.channel.send("**WRONG! YOU SUCK.**");
-                  //  message.channel.send("You failed! Better luck next time.");
+                else if(message.content === "you suck"){
+                    message.channel.send("**WRONG! YOU SUCK.**");
+                    message.channel.send("You failed! Better luck next time.");
                     
-               // }
-          //  }
+                }
+           // }
             
     }
 
