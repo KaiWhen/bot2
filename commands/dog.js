@@ -6,6 +6,7 @@ module.exports.run = async(bot, message, args) => {
     .get(`https://random.dog/woof.json`);
 
     let dogembed = new Discord.RichEmbed()
+    .setColor(RANDOM)
     .setImage(body.url);
 
     message.channel.send(dogembed);

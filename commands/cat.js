@@ -6,6 +6,7 @@ module.exports.run = async(bot, message, args) => {
     .get(`http://aws.random.cat/meow`);
 
     let catembed = new Discord.RichEmbed()
+    .setColor(RANDOM)
     .setImage(body.file);
 
     message.channel.send(catembed);

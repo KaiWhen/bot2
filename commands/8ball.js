@@ -14,6 +14,9 @@ module.exports.run = async(bot, message, args) => {
     ball[6] = "Outlook good.";
     ball[7] = "Cannot predict now.";
     ball[8] = "My reply is yes.";
+    ball[9] = "I don't care.";
+    ball[10] = "Yes. No. Maybe. IDK.";
+    ball[11] = "Sorry what was that?";
 
     let ballrnd = Math.floor(Math.random()*ball.length);
     message.channel.send("8ball: **" + ball[ballrnd] + "**");
