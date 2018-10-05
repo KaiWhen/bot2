@@ -34,7 +34,9 @@ module.exports.run = async(bot, message, args) => {
         Time: message.createdAt
     });
 
-    report.save()
+    insertOne(tempreport);
+
+    tempreport.save()
     .then(result => console.log(result))
     .catch(err => console.log(err));
 

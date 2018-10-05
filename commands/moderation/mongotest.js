@@ -1,7 +1,7 @@
 const mongo = require('mongodb').MongoClient;
 
 
-const muteSchema = mongo.Schema({
+db.createCollection("muteReport", {
     _id: mongo.Schema.Types.ObjectId,
     username: String,
     userID: String,
@@ -10,6 +10,5 @@ const muteSchema = mongo.Schema({
     mID: String,
     Time: String
 
-})
+});
 
-module.exports = mongo.model("muteReport". muteSchema);
