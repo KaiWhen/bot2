@@ -1,20 +1,16 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const ms = require("ms");
-const mongo = require('mongodb').MongoClient;
+//const mongo = require('mongodb').MongoClient;
 
 module.exports.run = async(bot, message, args) => {
     
     if(message.author.bot) return;
     if(message.author.type === "dm") return;
     
-    var url = process.env.MONGODB_URI;
+    
 
-    mongo.connect(url, function(err, db){
-        if(err){
-            console.log("Unable to connect to database");
-        }
-    });
+    
 
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.reply("User not found.");
@@ -23,22 +19,13 @@ module.exports.run = async(bot, message, args) => {
     let reason = args.slice(2).join(" ");
     if(!reason) return message.reply("There must be a reason...right?");
 
-    const tempreport = {
-        username: tomute.user.username,
-        userID: tomute.id,
-        reason: reason,
-        mUser: message.author.username,
-        mID: message.author.id,
-        Time: message.createdAt
-    }
-
-    insertOne(tempreport);
+    
 
     //tempreport.save()
     //.then(result => console.log(result))
     //.catch(err => console.log(err));
 
-    message.channel.send("mute report sent to database");
+    
 
     if(!mutedrole){
         try{
