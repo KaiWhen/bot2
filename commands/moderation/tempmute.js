@@ -24,7 +24,6 @@ module.exports.run = async(bot, message, args) => {
     if(!reason) return message.reply("There must be a reason...right?");
 
     const tempreport = {
-        _id: mongo.Types.ObjectId(),
         username: tomute.user.username,
         userID: tomute.id,
         reason: reason,
