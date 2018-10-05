@@ -57,6 +57,6 @@ bot.on("message", async message => {
 
 
 
-bot.login(botconfig.token);
+bot.login(process.env.BOT_TOKEN);
 
 //https://discordapp.com/oauth2/authorize?client_id=496756423901052931&scope=bot
