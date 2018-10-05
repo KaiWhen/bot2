@@ -1,31 +1,32 @@
-const botconfig = require("../botconfig.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
+const botconfig = require("./botconfig.json");
 
-var rps;
-var rpsrnd;
 var rpsact = false;
+var rpsrnd;
 
 bot.on("ready", async () => {
   console.log(`rps.js is running`);
 });
 
 bot.on("message", async message => {
-  if(message.author.bot) return;
-  if(message.channel.type === "dm") return;
 
-  let prefix = botconfig.prefix;
+  if(message.author.bot) return;
+  if(message.author.type === "dm") return;
+    
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
+  let prefix = botconfig.prefix;
   let args = messageArray.slice(1);
 
-    if(cmd === `${prefix}rps`){
-      let embed = new Discord.RichEmbed()
+  if(cmd === `${prefix}rps`){
+  let embed = new Discord.RichEmbed()
       .addField("Rock 🤜 | Paper 📄 | Scissors ✂", "type your choice")
        message.channel.send(embed);
         rpsact = true;
-        rpsrnd = Math.floor(Math.random()*3)
-      }
+        rpsrnd = Math.floor(Math.random()*3);
+  }
+     
         if(message.content === 'rock' && rpsrnd === 0 && rpsact === true){
           let embed = new Discord.RichEmbed()
           .addField("Rock 🤜", "It's a draw!")
@@ -81,6 +82,7 @@ bot.on("message", async message => {
           rpsact = false;
         }
         return;
+      
 
 
 });

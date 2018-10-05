@@ -1,10 +1,14 @@
 const Discord = require("discord.js");
 const botconfig = require("./botconfig.json");
 const bot = new Discord.Client({disableEveryone: true});
+const rps = require("./rps.js");
+const botinfo = require("./botinfo.js");
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 
-fs.readdir("./commands/", (err, files) => {
+function load(dir){
+
+    fs.readdir(dir, (err, files) => {
 
     if(err) console.log(err);
     
@@ -15,11 +19,16 @@ fs.readdir("./commands/", (err, files) => {
     }
 
     jsfile.forEach((f, i) =>{
-        let props = require(`./commands/${f}`);
+        delete require.cache[require.resolve(`${dir}${f}`)];
+        let props = require(`${dir}${f}`);
         console.log(`${f} loaded yay!`);
         bot.commands.set(props.help.name, props);
     });
 });
+}
+
+load("./commands/fun/");
+load("./commands/moderation/");
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is running`);
