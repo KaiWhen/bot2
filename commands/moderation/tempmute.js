@@ -9,7 +9,6 @@ module.exports.run = async(bot, message, args) => {
     if(message.author.type === "dm") return;
     
     var url = process.env.MONGODB_URI;
-    var dbo = db.db("bot2yep");
 
     mongo.connect(url, function(err, db){
         if(err){
