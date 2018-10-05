@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const ms = require("ms");
 const mongo = require('mongodb').MongoClient;
-const tempmute = require("./mongotest.js");
 
 module.exports.run = async(bot, message, args) => {
     
@@ -25,7 +24,7 @@ module.exports.run = async(bot, message, args) => {
     let reason = args.slice(2).join(" ");
     if(!reason) return message.reply("There must be a reason...right?");
 
-    const tempreport = new tempmute({
+    const tempreport = {
         _id: mongo.Types.ObjectId(),
         username: tomute.user.username,
         userID: tomute.id,
@@ -33,7 +32,7 @@ module.exports.run = async(bot, message, args) => {
         mUser: message.author.username,
         mID: message.author.id,
         Time: message.createdAt
-    });
+    }
 
     insertOne(tempreport);
 
