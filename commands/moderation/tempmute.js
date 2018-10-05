@@ -10,6 +10,7 @@ module.exports.run = async(bot, message, args) => {
     if(message.author.type === "dm") return;
     
     var url = process.env.MONGODB_URI;
+    var dbo = db.db("bot2yep");
 
     mongo.connect(url, function(err, db){
         if(err){
@@ -36,9 +37,9 @@ module.exports.run = async(bot, message, args) => {
 
     insertOne(tempreport);
 
-    tempreport.save()
-    .then(result => console.log(result))
-    .catch(err => console.log(err));
+    //tempreport.save()
+    //.then(result => console.log(result))
+    //.catch(err => console.log(err));
 
     message.channel.send("mute report sent to database");
 
