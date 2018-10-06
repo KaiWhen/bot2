@@ -8,7 +8,6 @@ bot.commands = new Discord.Collection();
 const mongoose = require('mongoose');
 const Money = require("./storage/moneys.js");
 const Schema = mongoose.Schema;
-const mongoose = require('mongoose');
 const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
