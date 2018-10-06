@@ -5,7 +5,8 @@ const rps = require("./rps.js");
 const botinfo = require("./botinfo.js");
 const fs = require("fs");
 bot.commands = new Discord.Collection();
-
+const Money = require("../../storage/moneys.js");
+const Schema = mongoose.Schema;
 const mongoose = require('mongoose');
 const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB);
@@ -44,10 +45,6 @@ bot.on("ready", async () => {
   });
 
 
-
-
-
-
 bot.on("message", async message => {
 
     
@@ -58,7 +55,34 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot, message, args);
 
-    
+    if(message.content.startsWith(prefix)){
+        let commandfile = bot.commands.get(command.slice(prefix.length));
+        if(commandfile) commandfile.run(bot, message, args);
+    }else{
+        Money.findOne({
+            userID: message.author.id,
+            serverID: message.guild.id
+        }, (err, money) => {
+            if(err) console.log(err);
+            if(!money){
+                const newMoney = new Money({
+                    userID: message.author.id,
+                    username: message.author.username,
+                    serverID: message.guild.id,
+                    money: 500
+                })
+                newMoney.save()
+                .then(result => console.log(result))
+                .catch(err => console.log(err));
+            }else{
+                money.money = money.money;
+                money.save()
+                .then(result => console.log(result))
+                .catch(err => console.log(err));
+            }
+            
+        });
+    }
 
 });
 
