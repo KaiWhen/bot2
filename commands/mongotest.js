@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const mReport = new Schema({
     _id: mongo.Schema.Types.ObjectId,
