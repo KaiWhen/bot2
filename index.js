@@ -56,7 +56,7 @@ bot.on("message", async message => {
     if(commandfile) commandfile.run(bot, message, args);
 
     if(message.content.startsWith(prefix)){
-        let commandfile = bot.commands.get(commands.slice(prefix.length));
+        let commandfile = bot.commands.get(cmd.slice(prefix.length));
         if(commandfile) commandfile.run(bot, message, args);
     }else{
         Money.findOne({
