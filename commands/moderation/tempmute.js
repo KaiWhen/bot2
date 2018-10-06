@@ -22,7 +22,7 @@ module.exports.run = async(bot, message, args) => {
 
 
     const mReport = new mutereport({
-        _id: mongo.Types.ObjectId(),
+        _id: mongoose.Types.ObjectId(),
         username: tomute.user.username,
         userID: tomute.user.id,
         reason: reason,
