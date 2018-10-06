@@ -14,6 +14,7 @@ module.exports.run = async(bot, message, args) => {
         .setTitle(`${message.author.username}`)
         .setColor("#FFDF00")
         if(!money){
+            
             moneyEmbed.addField("Money", "500", true);
             return message.channel.send(moneyEmbed);
         }else{

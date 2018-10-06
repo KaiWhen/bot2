@@ -28,11 +28,18 @@ module.exports.run = async(bot, message, args) => {
                 })
                 newMoney.save().catch(err => console.log(err));
             }else{
+                const money = new Money({
+                    userID: message.author.id,
+                    username: message.author.username,
+                    serverID: message.guild.id,
+                    money: money.money
+                })
                 money.save().catch(err => console.log(err));
             }
             
         });
     }
+    const money = new Money
 }
 
 module.exports.help = {
