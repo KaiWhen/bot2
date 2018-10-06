@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const mReport = new Schema({
-    _id: mongo.Schema.Types.ObjectId,
+    _id: mongoose.Schema.Types.ObjectId,
     username: String,
     userID: String,
     reason: String,
