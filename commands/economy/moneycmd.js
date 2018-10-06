@@ -15,7 +15,7 @@ module.exports.run = async(bot, message, args) => {
         .setColor("#FFDF00")
         if(!money){
             moneyEmbed.addField("Money", "500", true);
-            return message.channel.send(embed);
+            return message.channel.send(moneyEmbed);
         }else{
             moneyEmbed.addField("Money", money.money, true)
             message.channel.send(moneyEmbed);
