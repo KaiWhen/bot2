@@ -27,6 +27,8 @@ module.exports.run = async(bot, message, args) => {
                     money: 500
                 })
                 newMoney.save().catch(err => console.log(err));
+            }else{
+                money.save().catch(err => console.log(err));
             }
             
         });

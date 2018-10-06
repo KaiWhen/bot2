@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userData = new Schema({
+const money = new Schema({
     _id: mongoose.Schema.Types.ObjectId,
     username: String,
     userID: String,
@@ -10,4 +10,4 @@ const userData = new Schema({
 
 });
 
-module.exports = mongoose.model("userData", userData);
+module.exports = mongoose.model("moneydata", money);
