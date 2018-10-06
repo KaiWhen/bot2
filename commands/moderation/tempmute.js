@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const ms = require("ms");
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const mutereport = require("../mongotest.js");
 module.exports.run = async(bot, message, args) => {
     
