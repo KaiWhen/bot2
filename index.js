@@ -36,6 +36,7 @@ function load(dir){
 
 load("./commands/fun/");
 load("./commands/moderation/");
+load("./commands/economy/");
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is running`);
