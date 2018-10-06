@@ -5,6 +5,7 @@ const rps = require("./rps.js");
 const botinfo = require("./botinfo.js");
 const fs = require("fs");
 bot.commands = new Discord.Collection();
+const mongoose = require('mongoose');
 const Money = require("./storage/moneys.js");
 const Schema = mongoose.Schema;
 const mongoose = require('mongoose');
