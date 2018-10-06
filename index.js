@@ -56,7 +56,7 @@ bot.on("message", async message => {
     if(commandfile) commandfile.run(bot, message, args);
 
     if(message.content.startsWith(prefix)){
-        let commandfile = bot.commands.get(command.slice(prefix.length));
+        let commandfile = bot.commands.get(commands.slice(prefix.length));
         if(commandfile) commandfile.run(bot, message, args);
     }else{
         Money.findOne({
@@ -66,6 +66,7 @@ bot.on("message", async message => {
             if(err) console.log(err);
             if(!money){
                 const newMoney = new Money({
+                    _id: mongoose.Types.ObjectId(),
                     userID: message.author.id,
                     username: message.author.username,
                     serverID: message.guild.id,
