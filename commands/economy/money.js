@@ -9,8 +9,6 @@ module.exports.run = async(bot, message, args) => {
 
     let prefix = botconfig.prefix;
     let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
-    let args = messageArray.slice(1);
 
     if(message.content.startsWith(prefix)){
         let commandfile = bot.commands.get(command.slice(prefix.length));
