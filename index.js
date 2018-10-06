@@ -6,6 +6,13 @@ const botinfo = require("./botinfo.js");
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 
+const mongoose = require('mongoose');
+const mongoDB = 'process.env.MONGODB_URI';
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 function load(dir){
 
     fs.readdir(dir, (err, files) => {

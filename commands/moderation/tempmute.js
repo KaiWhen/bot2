@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const ms = require("ms");
-//const mongo = require('mongodb').MongoClient;
-
+const mongoose = require("mongoose");
+const mutereport = require("../mongotest.js");
 module.exports.run = async(bot, message, args) => {
     
     if(message.author.bot) return;
@@ -12,19 +12,29 @@ module.exports.run = async(bot, message, args) => {
 
     
 
-    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    let tomute = message.mentions.members.first();
     if(!tomute) return message.reply("User not found.");
     if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("Can't mute them!");
     let mutedrole = message.guild.roles.find(r => r.name === "muted");
     let reason = args.slice(2).join(" ");
     if(!reason) return message.reply("There must be a reason...right?");
 
-    
 
-    //tempreport.save()
-    //.then(result => console.log(result))
-    //.catch(err => console.log(err));
+    const mReport = new mutereport({
+        _id: mongo.Types.ObjectId(),
+        username: tomute.user.username,
+        userID: tomute.user.id,
+        reason: reason,
+        mUser: message.author.username,
+        mID: message.author.id,
+        Time: message.createdAt
+    });
 
+    mReport.save()
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
+
+    message.channel.send("mute report has been saved to the database");
     
 
     if(!mutedrole){

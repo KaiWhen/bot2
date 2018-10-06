@@ -1,7 +1,6 @@
-const mongo = require('mongodb').MongoClient;
-var dbo = db.db("bot2yep");
+const mongoose = require('mongoose');
 
-dbo.createCollection("muteReport", {
+const mReport = new Schema({
     _id: mongo.Schema.Types.ObjectId,
     username: String,
     userID: String,
@@ -12,3 +11,4 @@ dbo.createCollection("muteReport", {
 
 });
 
+module.exports = mongoose.model("mReport", mReport);
