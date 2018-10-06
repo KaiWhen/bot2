@@ -7,7 +7,7 @@ const fs = require("fs");
 bot.commands = new Discord.Collection();
 
 const mongoose = require('mongoose');
-const mongoDB = 'process.env.MONGODB_URI';
+const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
