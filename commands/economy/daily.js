@@ -15,7 +15,7 @@ module.exports.run = async(bot, message, args) => {
         .setColor("#FFDF00")
         let prevDaily = prevDaily.money;
         let mome = moment().format('L');
-        if(daily != mome){
+        if(prevDaily != mome){
             prevDaily = mome;
             money.money = money.money + 250;
             dailyEmbed.addField("**Daily Reward**", "+250", true);
