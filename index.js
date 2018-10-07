@@ -54,67 +54,57 @@ bot.on("message", async message => {
     let prefix = botconfig.prefix;
     let args = messageArray.slice(1);
     
-
-    if(message.content.startsWith(prefix)){
-        let commandfile = bot.commands.get(cmd.slice(prefix.length));
-        if(commandfile) commandfile.run(bot, message, args);
-    }else{
-        Money.findOne({
-            userID: message.author.id,
-            serverID: message.guild.id
-        }, (err, money) => {
-            if(err) console.log(err);
-            if(!money){
-                const newMoney = new Money({
-                    _id: mongoose.Types.ObjectId(),
-                    userID: message.author.id,
-                    username: message.author.username,
-                    serverID: message.guild.id,
-                    money: 500,
-                    prevDaily: "not collected"
-                })
-                newMoney.save()
-                .then(result => console.log(result))
-                .catch(err => console.log(err));
-            }else{
-                
-                money.money = money.money;
-                money.save()
-                .then(result => console.log(result))
-                .catch(err => console.log(err));
-            }
-            
+    bot.users.forEach(f => {
+        if(f.bot === true) {
+        
+        }
+        if(f.bot === false) {
+            const newUser = new Money({
+                _id: mongoose.Types.ObjectId(),
+                userID: message.author.id,
+                username: message.author.username,
+                serverID: message.guild.id,
+                money: 500,
+                prevDaily: "not collected"
+            })
+            newUser.save()
+            .catch(err => console.log(err));
+        }
         });
-    }
 
-    if(message.content === ",daily"){
-        Money.findOne({
-            userID: message.author.id,
-            serverID: message.guild.id
-        }, (err, money) => {
-            if(err) console.log(err);
-            if(!money){
-                const newMoney = new Money({
-                    _id: mongoose.Types.ObjectId(),
-                    userID: message.author.id,
-                    username: message.author.username,
-                    serverID: message.guild.id,
-                    money: 500,
-                    prevDaily: "not collected"
-                })
-                newMoney.save()
-                .then(result => console.log(result))
-                .catch(err => console.log(err));
-            }else{
+    // if(message.content.startsWith(prefix)){
+    //     let commandfile = bot.commands.get(cmd.slice(prefix.length));
+    //     if(commandfile) commandfile.run(bot, message, args);
+    // }else{
+    //     Money.findOne({
+    //         userID: message.author.id,
+    //         serverID: message.guild.id
+    //     }, (err, money) => {
+    //         if(err) console.log(err);
+    //         if(!money){
+    //             const newMoney = new Money({
+    //                 _id: mongoose.Types.ObjectId(),
+    //                 userID: message.author.id,
+    //                 username: message.author.username,
+    //                 serverID: message.guild.id,
+    //                 money: 500,
+    //                 prevDaily: "not collected"
+    //             })
+    //             newMoney.save()
+    //             .then(result => console.log(result))
+    //             .catch(err => console.log(err));
+    //         }else{
                 
-                money.money = money.money;
-                money.save()
-                .then(result => console.log(result))
-                .catch(err => console.log(err));
-            }
+    //             money.money = money.money;
+    //             money.save()
+    //             .then(result => console.log(result))
+    //             .catch(err => console.log(err));
+    //         }
             
-        });
-    }
+    //     });
+    // }
+
+    
 
 });
 
