@@ -13,7 +13,7 @@ module.exports.run = async(bot, message, args) => {
         if(err) console.log(err);
         let dailyEmbed = new Discord.RichEmbed()
         .setColor("#FFDF00")
-        let prevDaily = prevDaily.money;
+        let prevDaily = money.prevDaily;
         let mome = moment().format('L');
         if(prevDaily != mome){
             prevDaily = mome;
