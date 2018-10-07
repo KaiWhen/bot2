@@ -7,6 +7,7 @@ const money = new Schema({
     userID: String,
     serverID: String,
     money: Number,
+    prevDaily: Schema.Types.Mixed
 });
 
 module.exports = mongoose.model("moneydata", money);
