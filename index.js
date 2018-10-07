@@ -92,7 +92,7 @@ if(message.content.startsWith(prefix)){
      let commandfile = bot.commands.get(cmd.slice(prefix.length));
      if(commandfile) commandfile.run(bot, message, args);
  }else{
-    Money.findOne({
+    userData.findOne({
          userID: message.author.id,
         //serverID: message.guild.id
      }, (err, money) => {
