@@ -97,7 +97,7 @@ if(message.content.startsWith(prefix)){
         //serverID: message.guild.id
      }, (err, money) => {
         if(err) console.log(err);
-         if(!money && !bot.users.bot){
+         if(!money && !bot.user.bot){
            const newUser = new userData({
                _id: mongoose.Types.ObjectId(),
                 userID: message.author.id,
