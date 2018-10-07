@@ -7,7 +7,7 @@ const fs = require("fs");
 const moment = require("moment");
 bot.commands = new Discord.Collection();
 const mongoose = require('mongoose');
-const Money = require("./storage/moneys.js");
+const Money = require("./models/moneys.js");
 const Schema = mongoose.Schema;
 const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB);

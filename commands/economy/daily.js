@@ -15,12 +15,15 @@ module.exports.run = async(bot, message, args) => {
         .setColor("#FFDF00")
         if(daily != moment().format('L')){
             daily.daily = moment().format('L');
-            daily.money += 250;
+            daily.money = daily.money + 250;
             dailyEmbed.addField("**Daily Reward**", "+250", true);
-            
+            daily.save()
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
             return message.channel.send(dailyEmbed);
+            
         }else{
-            dailyEmbed.setTitle("**You have already collected your daily reward**", true);
+            dailyEmbed.setTitle("**You have already collected your daily reward today**");
             message.channel.send(dailyEmbed);
         }
     })
