@@ -109,7 +109,7 @@ if(message.content.startsWith(prefix)){
           newUser.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
-         }else{
+         }else if(!bot.user.bot){
                 
             money.money = money.money;
              money.save()
