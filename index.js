@@ -69,7 +69,7 @@ bot.on("message", async message => {
                     userID: message.author.id,
                     username: message.author.username,
                     serverID: message.guild.id,
-                    money: 500
+                    money: 499
                 })
                 newMoney.save()
                 .then(result => console.log(result))
