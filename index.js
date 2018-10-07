@@ -10,7 +10,7 @@ const Money = require("./storage/moneys.js");
 const Schema = mongoose.Schema;
 const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB);
-mongoose.Promise = global.Promise;
+//mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
