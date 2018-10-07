@@ -77,6 +77,7 @@ bot.on("message", async message => {
                 .then(result => console.log(result))
                 .catch(err => console.log(err));
             }else{
+                Money.add({daily: "not collected"});
                 money.money = money.money;
                 money.save()
                 .then(result => console.log(result))
