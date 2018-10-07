@@ -88,7 +88,7 @@ bot.on("message", async message => {
     //     }
     //     });
 
-if(message.content.startsWith(prefix)){
+if(message.content.startsWith(prefix) && !bot.user.bot){
      let commandfile = bot.commands.get(cmd.slice(prefix.length));
      if(commandfile) commandfile.run(bot, message, args);
  }else{
@@ -97,7 +97,7 @@ if(message.content.startsWith(prefix)){
         //serverID: message.guild.id
      }, (err, money) => {
         if(err) console.log(err);
-         if(!money && !bot.user.bot){
+         if(!money){
            const newUser = new userData({
                _id: mongoose.Types.ObjectId(),
                 userID: message.author.id,
@@ -109,7 +109,7 @@ if(message.content.startsWith(prefix)){
           newUser.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
-         }else if(!bot.user.bot){
+         }else{
                 
             money.money = money.money;
              money.save()
