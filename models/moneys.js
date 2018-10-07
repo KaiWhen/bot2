@@ -6,8 +6,8 @@ const money = new Schema({
     username: String,
     userID: String,
     serverID: String,
-    money: Number
-
+    money: Number,
+    daily: Function
 });
 
 module.exports = mongoose.model("moneydata", money);

@@ -4,6 +4,7 @@ const bot = new Discord.Client({disableEveryone: true});
 const rps = require("./rps.js");
 const botinfo = require("./botinfo.js");
 const fs = require("fs");
+const moment = require("moment");
 bot.commands = new Discord.Collection();
 const mongoose = require('mongoose');
 const Money = require("./storage/moneys.js");
@@ -69,7 +70,8 @@ bot.on("message", async message => {
                     userID: message.author.id,
                     username: message.author.username,
                     serverID: message.guild.id,
-                    money: 499
+                    money: 500,
+                    daily: "Not Collected"
                 })
                 newMoney.save()
                 .then(result => console.log(result))

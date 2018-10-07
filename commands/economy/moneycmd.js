@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Money = require("../../storage/moneys.js");
+const Money = require("../../models/moneys.js");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
