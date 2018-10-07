@@ -13,10 +13,9 @@ module.exports.run = async(bot, message, args) => {
         if(err) console.log(err);
         let dailyEmbed = new Discord.RichEmbed()
         .setColor("#FFDF00")
-        let prevDaily = money.prevDaily;
-        let mome = moment().format('L');
-        if(prevDaily != mome){
-            prevDaily = mome;
+        if(!money.prevDaily) money.prevDaily = "not collected";
+        if(money.prevDaily != moment().format('L')){
+            money.prevDaily = moment().format('L');
             money.money = money.money + 250;
             dailyEmbed.addField("**Daily Reward**", "+250", true);
             money.save()
@@ -24,7 +23,7 @@ module.exports.run = async(bot, message, args) => {
             .catch(err => console.log(err));
             return message.channel.send(dailyEmbed);
             
-        }else if(prevDaily = mome){
+        }else{
             dailyEmbed.setTitle("**You have already collected your daily reward today**");
             message.channel.send(dailyEmbed);
         }
