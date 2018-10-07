@@ -8,7 +8,7 @@ module.exports.run = async(bot, message, args) => {
     Money.findOne({
         userID: message.author.id,
         serverID: message.guild.id,
-        money: money
+        money
     }, (err, daily) => {
         if(err) console.log(err);
         let dailyEmbed = new Discord.RichEmbed()
