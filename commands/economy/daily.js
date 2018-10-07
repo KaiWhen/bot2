@@ -20,7 +20,6 @@ module.exports.run = async(bot, message, args) => {
                 username: message.author.username,
                 serverID: message.guild.id,
                 money: 500,
-                prevDaily: "not collected"
             })
             newMoney.save()
             .then(result => console.log(result))
