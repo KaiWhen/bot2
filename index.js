@@ -88,9 +88,11 @@ bot.on("message", async message => {
     //     }
     //     });
 
-if(message.content.startsWith(prefix) && !bot.user.bot){
-     let commandfile = bot.commands.get(cmd.slice(prefix.length));
-     if(commandfile) commandfile.run(bot, message, args);
+    let commandfile = bot.commands.get(cmd.slice(prefix.length));
+    if(commandfile) commandfile.run(bot, message, args);
+
+if(!bot.user.bot){
+     
  }else{
     userData.findOne({
          userID: message.author.id,
