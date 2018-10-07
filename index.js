@@ -71,7 +71,6 @@ bot.on("message", async message => {
                     username: message.author.username,
                     serverID: message.guild.id,
                     money: 500,
-                    prevDaily: false
                 })
                 newMoney.save()
                 .then(result => console.log(result))

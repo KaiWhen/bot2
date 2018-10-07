@@ -24,7 +24,7 @@ module.exports.run = async(bot, message, args) => {
             .catch(err => console.log(err));
             return message.channel.send(dailyEmbed);
             
-        }else{
+        }else if(prevDaily = mome){
             dailyEmbed.setTitle("**You have already collected your daily reward today**");
             message.channel.send(dailyEmbed);
         }
