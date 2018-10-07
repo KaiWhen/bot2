@@ -87,6 +87,35 @@ bot.on("message", async message => {
         });
     }
 
+    if(message.content === ",daily"){
+        Money.findOne({
+            userID: message.author.id,
+            serverID: message.guild.id
+        }, (err, money) => {
+            if(err) console.log(err);
+            if(!money){
+                const newMoney = new Money({
+                    _id: mongoose.Types.ObjectId(),
+                    userID: message.author.id,
+                    username: message.author.username,
+                    serverID: message.guild.id,
+                    money: 500,
+                    prevDaily: "not collected"
+                })
+                newMoney.save()
+                .then(result => console.log(result))
+                .catch(err => console.log(err));
+            }else{
+                
+                money.money = money.money;
+                money.save()
+                .then(result => console.log(result))
+                .catch(err => console.log(err));
+            }
+            
+        });
+    }
+
 });
 
 
