@@ -7,7 +7,7 @@ const fs = require("fs");
 const moment = require("moment");
 bot.commands = new Discord.Collection();
 const mongoose = require('mongoose');
-const Money = require("./models/moneys.js");
+const userData = require("./models/userData");
 const Schema = mongoose.Schema;
 const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB);
@@ -59,11 +59,10 @@ bot.on("message", async message => {
         
         }
         if(f.bot === false) {
-            const newUser = new Money({
+            const newUser = new userData({
                 _id: mongoose.Types.ObjectId(),
                 userID: message.author.id,
                 username: message.author.username,
-                serverID: message.guild.id,
                 money: 500,
                 prevDaily: "not collected"
             })

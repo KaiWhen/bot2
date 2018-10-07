@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
-const Money = require("../../models/moneys.js");
+const userData = require("../../models/userData.js");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 module.exports.run = async(bot, message, args) => {
-    Money.findOne({
+    userData.findOne({
         userID: message.author.id,
-        serverID: message.guild.id
+        //serverID: message.guild.id
     }, (err, money) => {
         if(err) console.log(err);
         let moneyEmbed = new Discord.RichEmbed()
