@@ -9,15 +9,17 @@ module.exports.run = async(bot, message, args) => {
         userID: message.author.id,
         serverID: message.guild.id,
        
-    }, (err, daily) => {
+    }, (err, money) => {
         if(err) console.log(err);
         let dailyEmbed = new Discord.RichEmbed()
         .setColor("#FFDF00")
-        if(daily != moment().format('L')){
-            daily.daily = moment().format('L');
-            daily.money = daily.money + 250;
+        let prevDaily = prevDaily.money;
+        let mome = moment().format('L');
+        if(daily != mome){
+            prevDaily = mome;
+            money.money = money.money + 250;
             dailyEmbed.addField("**Daily Reward**", "+250", true);
-            daily.save()
+            money.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
             return message.channel.send(dailyEmbed);
