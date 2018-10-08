@@ -5,8 +5,9 @@ const userData = new Schema({
     _id: mongoose.Schema.Types.ObjectId,
     username: String,
     userID: String,
-    //serverID: String,
     money: Number,
+    exp: Number,
+    lvl: Number,
     prevDaily: Schema.Types.Mixed
 });
 

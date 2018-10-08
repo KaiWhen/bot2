@@ -104,6 +104,8 @@ if(message.content.startsWith(prefix)){
                 username: message.author.username,
                 //serverID: message.guild.id,
                money: 500,
+               exp: 0,
+               lvl: 1,
               prevDaily: "not collected"
            })
           newUser.save()
