@@ -37,7 +37,7 @@ module.exports.run = async(bot, message, args) => {
                 const newUser = new userData({
                     _id: mongoose.Types.ObjectId(),
                      userID: todonate.id,
-                     username: todonate.username,
+                     username: todonate.user.username,
                      //serverID: message.guild.id,
                     money: 500,
                    prevDaily: "not collected"
