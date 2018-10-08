@@ -116,14 +116,17 @@ userData.findOne({
     let nextlvl = Math.ceil(xp.lvl ^ 3);
     if(currentlvl > 0 && currentlvl <= 5){
         let exprnd = Math.ceil(Math.random()*5)+3;
+        currentexp = xp.exp + exprnd;
     }
     else if(currentlvl > 5 && currentlvl <= 10){
         let exprnd = Math.ceil(Math.random()*5)+10;
+        currentexp = xp.exp + exprnd;
     }
     else if(currentlvl > 10 && currentlvl <= 13){
         let exprnd = Math.ceil(Math.random()*8)+20;
+        currentexp = xp.exp + exprnd;
     }
-    xp.exp = xp.exp + exprnd;
+    
     if(currentexp >= nextlvl){
         currentlvl = currentlvl + 1;
         let lvlupEmbed = new Discord.RichEmbed()
