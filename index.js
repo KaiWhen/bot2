@@ -84,24 +84,23 @@ if(message.content.startsWith(prefix)){
              
         }
 
-    let currentexp = user.exp;
-    let currentlvl = user.lvl;
-    let nextlvl = Math.ceil(Math.pow(currentlvl, 3));
-    if(currentlvl > 0 && currentlvl <= 5){
+   
+    let nextlvl = Math.ceil(Math.pow(user.lvl, 3));
+    if(user.lvl > 0 && user.lvl <= 5){
         let exprnd = Math.ceil(Math.random()*5)+3;
-        user.exp = currentexp + exprnd;
+        user.exp = user.exp + exprnd;
     }
-    else if(currentlvl > 5 && currentlvl <= 10){
+    else if(user.lvl > 5 && user.lvl <= 10){
         let exprnd = Math.ceil(Math.random()*5)+10;
-        user.exp = currentexp + exprnd;
+        user.exp = user.exp + exprnd;
     }
-    else if(currentlvl > 10 && currentlvl <= 13){
+    else if(user.lvl > 10 && user.lvl <= 13){
         let exprnd = Math.ceil(Math.random()*8)+20;
         user.exp = currentexp + exprnd;
     }
     
-    if(currentexp >= nextlvl){
-        user.lvl = currentlvl + 1;
+    if(user.exp >= nextlvl){
+        user.lvl = user.lvl + 1;
         let lvlupEmbed = new Discord.RichEmbed()
         .setTitle("**Level up!**")
         .setColor("#00FF00")
