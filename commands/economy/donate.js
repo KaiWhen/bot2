@@ -51,13 +51,13 @@ module.exports.run = async(bot, message, args) => {
 
             if(donator < donation) return message.reply("Not enough money!");
             
-            donator = donator - donation;
-            receiver = receiver + donation;
+            donator = donator - parseInt(donation);
+            receiver = receiver + parseInt(donation);
         
             let donateEmbed = new Discord.RichEmbed()
             .setTitle(`**${message.author.username} has successfully donated ${donation} to ${todonate.username}**`);
             
-            message.channel.send("donateEmbed");
+            message.channel.send(donateEmbed);
 
             authorMoney.save()
             .then(result => console.log(result))
