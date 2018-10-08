@@ -88,14 +88,17 @@ if(message.content.startsWith(prefix)){
     let nextlvl = Math.ceil(Math.pow(currentlvl, 3));
     if(currentlvl > 0 && currentlvl <= 5){
         let exprnd = Math.ceil(Math.random()*5)+3;
+        currentexp = user.exp + exprnd;
     }
     else if(currentlvl > 5 && currentlvl <= 10){
         let exprnd = Math.ceil(Math.random()*5)+10;
+        currentexp = user.exp + exprnd;
     }
     else if(currentlvl > 10 && currentlvl <= 13){
         let exprnd = Math.ceil(Math.random()*8)+20;
+        currentexp = user.exp + exprnd;
     }
-    currentexp = user.exp + exprnd;
+    
     if(currentexp >= nextlvl){
         currentlvl = currentlvl + 1;
         let lvlupEmbed = new Discord.RichEmbed()
