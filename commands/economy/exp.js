@@ -25,7 +25,7 @@ module.exports.run = async(bot, message, args) => {
             return message.channel.send("**Please try again**");
         }
 
-        let nextlvl = Math.ceil(xp.lvl ^ 3);
+        let nextlvl = Math.ceil(Math.pow(xp.lvl, 3));
         let expleft = nextlvl - xp.exp;
         let lvlEmbed = new Discord.RichEmbed()
         .setTitle(`**${message.author.username}**`)
