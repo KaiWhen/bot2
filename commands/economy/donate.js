@@ -25,6 +25,7 @@ module.exports.run = async(bot, message, args) => {
            newUser.save()
              .then(result => console.log(result))
              .catch(err => console.log(err));
+             return message.reply("**Please try again.**");
         }
 
         userData.findOne({
@@ -44,6 +45,7 @@ module.exports.run = async(bot, message, args) => {
                newUser.save()
                  .then(result => console.log(result))
                  .catch(err => console.log(err));
+                 return message.reply("**Please try again.**");
             }
 
             let donator = authorMoney.money;
@@ -65,7 +67,7 @@ module.exports.run = async(bot, message, args) => {
             payedMoney.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
-            return message.reply("**Please try again.**");
+            
         });
         
     });
