@@ -56,8 +56,15 @@ module.exports.run = async(bot, message, args) => {
         
             let donateEmbed = new Discord.RichEmbed()
             .setTitle(`**${message.author.username} has successfully donated ${donation} to ${todonate.username}**`);
-        
             
+            message.channel.send("donateEmbed");
+
+            authorMoney.save()
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
+            payedMoney.save()
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
         });
         
     });
