@@ -96,7 +96,9 @@ if(message.content != "uisadfhuisadif"){
     userID: message.author.id
 }, (err, xp) => {
     if(err) console.log(err);
-
+    if(!xp){
+        return message.channel.send("Error");
+    }
     let currentexp = xp.exp;
     let currentlvl = xp.lvl;
     let nextlvl = Math.ceil(Math.pow(xp.lvl,3));
