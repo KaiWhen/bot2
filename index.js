@@ -59,6 +59,7 @@ if(message.content.startsWith(prefix)){
      let commandfile = bot.commands.get(cmd.slice(prefix.length));
      if(commandfile) commandfile.run(bot, message, args);
  }else{
+     if(message.member.user.bot) return;
     userData.findOne({
          userID: message.author.id,
         //serverID: message.guild.id
