@@ -69,7 +69,7 @@ if(message.content.startsWith(prefix)){
                _id: mongoose.Types.ObjectId(),
                 userID: message.author.id,
                 username: message.author.username,
-                //serverID: message.guild.id,
+                
                money: 500,
                exp: 0,
                lvl: 1,
@@ -89,8 +89,55 @@ if(message.content.startsWith(prefix)){
      });
 }
 
-let rndd = Math.floor(Math.random()*8);
-console.log(rndd);
+
+
+userData.findOne({
+    userID: message.author.id
+}, (err, xp) => {
+    if(err) console.log(err);
+    if(!xp){
+        const newExp = new userData({
+            _id: mongoose.Types.ObjectId(),
+            userID: message.author.id,
+            username: message.author.username,
+            money: 500,
+            exp: 0,
+            lvl: 1,
+            prevDaily: "not collected"
+        })
+        newExp.save()
+        .then(result => console.log(result))
+        .catch(err => console.log(err));
+        return message.channel.send("Error");
+    }
+
+    let currentexp = xp.exp;
+    let currentlvl = xp.lvl;
+    let nextlvl = Math.ceil(xp.lvl ^ 3);
+    if(currentlvl > 0 && currentlvl <= 5){
+        let exprnd = Math.ceil(Math.random()*5)+3;
+    }
+    else if(currentlvl > 5 && currentlvl <= 10){
+        let exprnd = Math.ceil(Math.random()*5)+10;
+    }
+    else if(currentlvl > 10 && currentlvl <= 13){
+        let exprnd = Math.ceil(Math.random()*8)+20;
+    }
+    xp.exp = xp.exp + exprnd;
+    if(currentexp >= nextlvl){
+        currentlvl = currentlvl + 1;
+        let lvlupEmbed = new Discord.RichEmbed()
+        .setTitle("**Level up!**")
+        .setColor("#00FF00")
+        .setDescription(`**${message.author.username}, are now level ${currentlvl}!**`)
+        message.channel.send(lvlupEmbed);
+    }
+    
+    xp.save()
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
+    
+});
 
     
 
