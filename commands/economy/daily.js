@@ -11,6 +11,19 @@ module.exports.run = async(bot, message, args) => {
        
     }, (err, money) => {
         if(err) console.log(err);
+        if(!money){
+            const newUser = new userData({
+                _id: mongoose.Types.ObjectId(),
+                userID: message.author.id,
+                username: message.author.username,
+                money: 500,
+                prevDaily: "not collected"
+            })
+           newUser.save()
+             .then(result => console.log(result))
+             .catch(err => console.log(err));
+             return message.reply("**Please try again.**");
+        }
         let dailyEmbed = new Discord.RichEmbed()
         .setColor("#FFDF00")
         if(!money.prevDaily) money.prevDaily = "not collected";
