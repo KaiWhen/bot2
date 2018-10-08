@@ -100,7 +100,7 @@ if(message.content.startsWith(prefix)){
         user.exp = currentexp + exprnd;
     }
     
-    if(currentexp <= nextlvl){
+    if(currentexp >= nextlvl){
         user.lvl = currentlvl + 1;
         let lvlupEmbed = new Discord.RichEmbed()
         .setTitle("**Level up!**")
