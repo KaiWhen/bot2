@@ -77,6 +77,7 @@ if(message.content.startsWith(prefix)){
           newUser.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
+            return;
          }else{
                 
             user.money = user.money;
@@ -99,12 +100,12 @@ if(message.content.startsWith(prefix)){
         currentexp = user.exp + exprnd;
     }
     
-    if(currentexp >= nextlvl){
+    if(currentexp <= nextlvl){
         currentlvl = currentlvl + 1;
         let lvlupEmbed = new Discord.RichEmbed()
         .setTitle("**Level up!**")
         .setColor("#00FF00")
-        .setDescription(`**${message.author.username}, are now level ${currentlvl}!**`)
+        .setDescription(`**${message.author.username}, you are now level ${currentlvl}!**`)
         message.channel.send(lvlupEmbed);
     }
     
