@@ -65,6 +65,7 @@ module.exports.run = async(bot, message, args) => {
             payedMoney.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
+            return message.reply("**Please try again.**");
         });
         
     });
