@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const 
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
