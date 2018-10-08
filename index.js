@@ -91,42 +91,25 @@ if(message.content.startsWith(prefix)){
 
 
 
-userData.findOne({
+if(message.content != "uisadfhuisadif"){
+    userData.findOne({
     userID: message.author.id
 }, (err, xp) => {
     if(err) console.log(err);
-    if(!xp){
-        const newExp = new userData({
-            _id: mongoose.Types.ObjectId(),
-            userID: message.author.id,
-            username: message.author.username,
-            money: 500,
-            exp: 0,
-            lvl: 1,
-            prevDaily: "not collected"
-        })
-        newExp.save()
-        .then(result => console.log(result))
-        .catch(err => console.log(err));
-        return message.channel.send("Error");
-    }
 
     let currentexp = xp.exp;
     let currentlvl = xp.lvl;
-    let nextlvl = Math.ceil(xp.lvl ^ 3);
+    let nextlvl = Math.ceil(Math.pow(xp.lvl,3));
     if(currentlvl > 0 && currentlvl <= 5){
         let exprnd = Math.ceil(Math.random()*5)+3;
-        currentexp = xp.exp + exprnd;
     }
     else if(currentlvl > 5 && currentlvl <= 10){
         let exprnd = Math.ceil(Math.random()*5)+10;
-        currentexp = xp.exp + exprnd;
     }
     else if(currentlvl > 10 && currentlvl <= 13){
         let exprnd = Math.ceil(Math.random()*8)+20;
-        currentexp = xp.exp + exprnd;
     }
-    
+    currentexp = xp.exp + exprnd;
     if(currentexp >= nextlvl){
         currentlvl = currentlvl + 1;
         let lvlupEmbed = new Discord.RichEmbed()
@@ -141,7 +124,7 @@ userData.findOne({
     .catch(err => console.log(err));
     
 });
-
+}
     
 
 });
