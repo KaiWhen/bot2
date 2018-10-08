@@ -89,15 +89,15 @@ if(message.content.startsWith(prefix)){
     let nextlvl = Math.ceil(Math.pow(currentlvl, 3));
     if(currentlvl > 0 && currentlvl <= 5){
         let exprnd = Math.ceil(Math.random()*5)+3;
-        currentexp = user.exp + exprnd;
+        user.exp = currentexp + exprnd;
     }
     else if(currentlvl > 5 && currentlvl <= 10){
         let exprnd = Math.ceil(Math.random()*5)+10;
-        currentexp = user.exp + exprnd;
+        user.exp = currentexp + exprnd;
     }
     else if(currentlvl > 10 && currentlvl <= 13){
         let exprnd = Math.ceil(Math.random()*8)+20;
-        currentexp = user.exp + exprnd;
+        user.exp = currentexp + exprnd;
     }
     
     if(currentexp <= nextlvl){
@@ -105,13 +105,14 @@ if(message.content.startsWith(prefix)){
         let lvlupEmbed = new Discord.RichEmbed()
         .setTitle("**Level up!**")
         .setColor("#00FF00")
-        .setDescription(`**${message.author.username}, you are now level ${currentlvl}!**`)
+        .setDescription(`**${message.author.username}, you are now level ${currentlvl}!**`);
         message.channel.send(lvlupEmbed);
     }
     
     user.save()
     .then(result => console.log(result))
     .catch(err => console.log(err));
+    return;
             
      });
 }
