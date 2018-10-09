@@ -27,22 +27,24 @@ module.exports.run = async(bot, message, args) => {
         }
 
         let amnt = args[1];
+        let amount = parseInt(amnt);
+        let resultmoney = amount*2;
         let throwEmbed = new Discord.RichEmbed()
-        .setTitle(`${message.author.displayAvatarURL} You threw a ball at the basket and... 🏀`)
-        
+        .setTitle(`You threw a ball at the basket and... 🏀`)
+        .setAvatar(`${message.author.displayAvatarURL}`);
         message.channel.send(throwEmbed);
         setTimeout(function(){
             let rnd = Math.floor(Math.random()*10);
             let basketEmbed = new Discord.RichEmbed();
             
             if(rnd === 6 || rnd === 4){
-                user.money = user.money + parseInt(amnt*2);
-                basketEmbed.setTitle(`${message.author.displayAvatarURL} Scored! You just won ${parseInt(amnt*2)}`);
+                user.money = user.money + resultmoney;
+                basketEmbed.setTitle(`Scored! You just won ${resultmoney}`);
                 basketEmbed.addField("New Balance", user.money);
                 return message.channel.send(basketEmbed);
             }else{
-                user.money = user.money - parseInt(amnt*2);
-                basketEmbed.setTitle(`${message.author.displayAvatarURL} Missed! You lost ${parseInt(amnt*2)}! Better luck next time!`);
+                user.money = user.money - resultmoney;
+                basketEmbed.setTitle(`${message.author.displayAvatarURL} Missed! You lost ${resultmoney}! Better luck next time!`);
                 return message.channel.send(basketEmbed);
             }
         }, 2500);
