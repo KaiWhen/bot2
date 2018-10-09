@@ -27,12 +27,13 @@ module.exports.run = async(bot, message, args) => {
         }
 
         let amount = parseInt(args);
+        if(!args[1]) amount = 1;
         let check = user.money - amount;
         //if(amount - user.money < 0) return message.reply("**Not enough money!**");
         let resultmoney = amount*2;
         let throwEmbed = new Discord.RichEmbed()
         .setTitle(`🏀 You threw a ball at the basket and...`);
-        if(!args) amount = 1;
+       
         if(check >= 0){
         message.channel.send(throwEmbed);
         setTimeout(function(){
