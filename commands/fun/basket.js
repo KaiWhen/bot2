@@ -45,6 +45,7 @@ module.exports.run = async(bot, message, args) => {
                 return message.channel.send(basketEmbed);
             }else{
                 user.money = user.money - resultmoney;
+                if(user.money < 0) user.money = 0;
                 basketEmbed.setTitle(`Missed! You lost ${resultmoney}! Better luck next time!`);
                 basketEmbed.addField("New Balance", user.money);
                 user.save()
