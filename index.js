@@ -43,7 +43,7 @@ load("./commands/other/");
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is running`);
-    bot.user.setActivity("with u");
+    bot.user.setActivity(",help");
   });
 
 
