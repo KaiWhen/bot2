@@ -39,10 +39,16 @@ module.exports.run = async(bot, message, args) => {
                 user.money = user.money + resultmoney;
                 basketEmbed.setTitle(`Scored! You just won ${resultmoney}!`);
                 basketEmbed.addField("New Balance", user.money);
+                user.save()
+                .then(result => console.log(result))
+                .catch(err => console.log(err));
                 return message.channel.send(basketEmbed);
             }else{
                 user.money = user.money - resultmoney;
                 basketEmbed.setTitle(`Missed! You lost ${resultmoney}! Better luck next time!`);
+                user.save()
+                .then(result => console.log(result))
+                .catch(err => console.log(err));
                 return message.channel.send(basketEmbed);
             }
         }, 2500);
