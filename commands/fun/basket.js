@@ -27,8 +27,8 @@ module.exports.run = async(bot, message, args) => {
         }
 
         let amount = parseInt(args);
-        if(!args[1]) amount = 1;
-        else if(args[1] === "0") return message.reply("**Please enter a number greater than 0**");
+        if(!args[0]) amount = 1;
+        else if(args[0] === "0") return message.reply("**Please enter a number greater than 0**");
         let check = user.money - amount;
         //if(amount - user.money < 0) return message.reply("**Not enough money!**");
         let resultmoney = amount*2;
