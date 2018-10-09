@@ -109,7 +109,7 @@ if(message.content.startsWith(prefix)){
         let lvlupEmbed = new Discord.RichEmbed()
         .setTitle("**Level up!**")
         .setColor("#00FF00")
-        .setDescription(`**${message.author.username}, you are now level ${user.lvl}!**`);
+        .setDescription(`${message.author.username}, you are now level ${user.lvl}!`);
         message.channel.send(lvlupEmbed);
     }
     

@@ -27,10 +27,12 @@ module.exports.run = async(bot, message, args) => {
         }
 
         let amount = parseInt(args);
-        if(amount - user.money < 0) return message.reply("**Not enough money!**");
+        let check = amount - user.money;
+        //if(amount - user.money < 0) return message.reply("**Not enough money!**");
         let resultmoney = amount*2;
         let throwEmbed = new Discord.RichEmbed()
         .setTitle(`🏀 You threw a ball at the basket and...`);
+        if(check >= 0){
         message.channel.send(throwEmbed);
         setTimeout(function(){
             let rnd = Math.floor(Math.random()*20);
@@ -55,6 +57,10 @@ module.exports.run = async(bot, message, args) => {
                 return message.channel.send(basketEmbed);
             }
         }, 2500);
+    }else{
+        return message.reply("**Not enough money!**");
+    }
+        
 
     });
     
