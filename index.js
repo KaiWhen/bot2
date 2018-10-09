@@ -87,20 +87,26 @@ if(message.content.startsWith(prefix)){
 
    
     let nextlvl = Math.ceil(Math.pow(user.lvl, 3));
-    if(user.lvl > 0 && user.lvl <= 4){
-        let exprnd = Math.ceil(Math.random()*1)+2;
-        user.exp = user.exp + exprnd;
-    }
-    else if(user.lvl > 4 && user.lvl <= 6){
-        let exprnd = Math.ceil(Math.random()*4)+6;
+    if(user.lvl > 0 && user.lvl <= 6){
+        let exprnd = 1;
         user.exp = user.exp + exprnd;
     }
     else if(user.lvl > 6 && user.lvl <= 10){
-        let exprnd = Math.ceil(Math.random()*8)+12;
+        let exprnd = Math.ceil(Math.random()*2);
+        user.exp = user.exp + exprnd;
+        console.log(exprnd);
+    }
+    else if(user.lvl > 10 && user.lvl <= 14){
+        let exprnd = Math.ceil(Math.random()*3);
+        user.exp = user.exp + exprnd;
+        console.log(exprnd);
+    }
+    else if(user.lvl > 14 && user.lvl <= 17){
+        let exprnd = Math.ceil(Math.random()*4);
         user.exp = user.exp + exprnd;
     }
-    else if(user.lvl > 10){
-        let exprnd = Math.ceil(Math.random()*10)+15;
+    else if(user.lvl > 17 && user.lvl <= 20){
+        let exprnd = Math.ceil(Math.random()*4);
         user.exp = user.exp + exprnd;
     }
     
@@ -114,7 +120,7 @@ if(message.content.startsWith(prefix)){
     }
     
     user.save()
-    .then(result => console.log(result))
+    //.then(result => console.log(result))
     .catch(err => console.log(err));
     return;
             
