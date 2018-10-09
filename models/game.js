@@ -9,7 +9,7 @@ const charData = new Schema({
     charlvl: Number,
     strength: Number,
     defence: Number,
-    timer: String,
+    time: String,
     park: Boolean,
     gym: Boolean,
     dojo: Boolean
