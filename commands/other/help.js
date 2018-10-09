@@ -4,6 +4,7 @@ module.exports.run = async(bot, message, args) => {
     
     let helpEmbed = new Discord.RichEmbed()
     .setTitle("Commands")
+    .setColor("RANDOM")
     .addField("Money & EXP", "`money` `daily` `donate <@user>` `level`")
     .addField("Fun", "`say` `saysomething` `8ball` `basket <bet amount>` `rps`")
     .addField("Moderation", "`tempmute`")
