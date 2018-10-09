@@ -29,12 +29,12 @@ module.exports.run = async(bot, message, args) => {
         let amnt = args[1];
         let throwEmbed = new Discord.RichEmbed()
         .setTitle(`${message.author.displayAvatarURL} You threw a ball at the basket and... 🏀`)
-        .setThumbnail("🏀");
+        
         message.channel.send(throwEmbed);
         setTimeout(function(){
             let rnd = Math.floor(Math.random()*10);
-            let basketEmbed = new Discord.RichEmbed()
-            .setThumbnail("🏀");
+            let basketEmbed = new Discord.RichEmbed();
+            
             if(rnd === 6 || rnd === 4){
                 user.money = user.money + parseInt(amnt*2);
                 basketEmbed.setTitle(`${message.author.displayAvatarURL} Scored! You just won ${parseInt(amnt*2)}`);
