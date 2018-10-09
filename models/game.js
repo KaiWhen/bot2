@@ -1,15 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const gameData = new Schema({
+const charData = new Schema({
     _id: mongoose.Schema.Types.ObjectId,
     userID: String,
     username: String,
-    gamexp: Number,
-    gamelvl: Number,
+    charxp: Number,
+    charlvl: Number,
+    strength: Number,
+    defence: Number,
+    timer: String,
     park: Boolean,
     gym: Boolean,
     dojo: Boolean
 });
 
-module.exports = mongoose.model("gameData", gameData);
+module.exports = mongoose.model("charData", charData);
