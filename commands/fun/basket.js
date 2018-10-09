@@ -27,7 +27,7 @@ module.exports.run = async(bot, message, args) => {
         }
 
         let amount = parseInt(args);
-        let check = amount - user.money;
+        let check = user.money - amount;
         //if(amount - user.money < 0) return message.reply("**Not enough money!**");
         let resultmoney = amount*2;
         let throwEmbed = new Discord.RichEmbed()
