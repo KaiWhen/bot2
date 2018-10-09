@@ -10,7 +10,7 @@ module.exports.run = async(bot, message, args) => {
     if(message.author.bot) return;
     if(message.author.type === "dm") return;
     
-    if(!message.author.hasPermission("ADMINISTRATOR")) return message.reply("**You do not have permission to do that!**");
+    if(!author.hasPermission("ADMINISTRATOR")) return message.reply("**You do not have permission to do that!**");
     let tomute = message.mentions.members.first();
     if(!tomute) return message.reply("User not found.");
     if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("Can't mute them!");
