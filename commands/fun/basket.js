@@ -30,8 +30,7 @@ module.exports.run = async(bot, message, args) => {
         let amount = parseInt(amnt);
         let resultmoney = amount*2;
         let throwEmbed = new Discord.RichEmbed()
-        .setTitle(`You threw a ball at the basket and... 🏀`)
-        .setAvatar(`${message.author.displayAvatarURL}`);
+        .setTitle(`You threw a ball at the basket and... 🏀`);
         message.channel.send(throwEmbed);
         setTimeout(function(){
             let rnd = Math.floor(Math.random()*10);
