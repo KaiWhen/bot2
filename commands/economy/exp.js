@@ -30,7 +30,7 @@ module.exports.run = async(bot, message, args) => {
         let lvlEmbed = new Discord.RichEmbed()
         .setTitle(`**${message.author.username}**`)
         .setThumbnail(`${message.author.displayAvatarURL}`)
-        .addField("Level", `${xp.lvl}`, true)
+        .addField("Level", `${xp.lvl-1}`, true)
         .addField("EXP Points", `${xp.exp}`, true)
         .setFooter(`EXP needed for next level-up: ${expleft}`)
 

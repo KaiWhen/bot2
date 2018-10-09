@@ -110,12 +110,13 @@ if(message.content.startsWith(prefix)){
         user.exp = user.exp + exprnd;
     }
     
+    
     if(user.exp >= nextlvl){
         user.lvl = user.lvl + 1;
         let lvlupEmbed = new Discord.RichEmbed()
         .setTitle("**Level up!**")
         .setColor("#00FF00")
-        .setDescription(`${message.author.username}, you are now level ${user.lvl}!`);
+        .setDescription(`${message.author.username}, you are now level ${user.lvl-1}!`);
         message.channel.send(lvlupEmbed);
     }
     
