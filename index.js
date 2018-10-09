@@ -99,6 +99,10 @@ if(message.content.startsWith(prefix)){
         let exprnd = Math.ceil(Math.random()*8)+12;
         user.exp = user.exp + exprnd;
     }
+    else if(user.lvl > 10){
+        let exprnd = Math.ceil(Math.random()*10)+15;
+        user.exp = user.exp + exprnd;
+    }
     
     if(user.exp >= nextlvl){
         user.lvl = user.lvl + 1;
