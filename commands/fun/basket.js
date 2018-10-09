@@ -32,6 +32,7 @@ module.exports.run = async(bot, message, args) => {
         let resultmoney = amount*2;
         let throwEmbed = new Discord.RichEmbed()
         .setTitle(`🏀 You threw a ball at the basket and...`);
+        if(args.NaN) let amount = 1;
         if(check >= 0){
         message.channel.send(throwEmbed);
         setTimeout(function(){
