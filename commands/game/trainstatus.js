@@ -35,7 +35,10 @@ module.exports.run = async(bot, message, args) => {
         
         let timenow = moment().toISOString("L LT");
         chartime = moment(char.time);
-        let timeleft = 5 - parseInt(chartime.from(timenow));
+        let timefrom = parseInt(chartime.from(timenow));
+        let timeleft = 5 - timefrom;
+        if(timefrom === 0) timeleft = 5;
+        
 
         if(char.park === false) return message.reply("**You are not currently training**");
 
