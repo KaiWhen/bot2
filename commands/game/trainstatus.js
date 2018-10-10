@@ -51,8 +51,8 @@ module.exports.run = async(bot, message, args) => {
             char.park = false;
             message.channel.send(statEmbed);
 
-            if(char.exp >= nextlvl){
-                char.lvl = char.lvl + 1;
+            if(char.charxp >= nextlvl){
+                char.charlvl = char.charlvl + 1;
                 let lvlupEmbed = new Discord.RichEmbed()
                 .setTitle("**Your character leveled up!**")
                 .setThumbnail("../../images/greenarrow.png")
