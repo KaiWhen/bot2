@@ -13,6 +13,7 @@
   "author": "KaiWhen",
   "license": "ISC",
   "dependencies": {
+    "date-time-js": "^1.0.6",
     "discord.js": "^11.4.2",
     "moment": "^2.22.2",
     "mongodb": "^3.1.6",
