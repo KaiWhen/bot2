@@ -52,14 +52,11 @@ module.exports.run = async(bot, message, args) => {
             return message.channel.send(statEmbed);
         }
             
-        else if(char.park === true && timeleft > 0 && timeleft <=5){
+        else if(char.park === true && timeleft > 0){
             
             statEmbed.addField("Time Remaining", `${timeleft} minute(s)`);
             return message.channel.send(statEmbed);
 
-        }else if(char.park === true && timeleft === 5){
-            statEmbed.addField("Time Remaining", `5 minute(s)`);
-            return message.channel.send(statEmbed);
         }
 
     });
