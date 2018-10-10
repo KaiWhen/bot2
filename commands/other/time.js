@@ -3,7 +3,7 @@ const moment = require("moment");
 
 module.exports.run = async(bot, message, args) => {
 
-    let a = moment().format("L LTS");
+    let a = moment().format("L LT");
     let b = moment("10/10/2018 13:12:23 PM");
     message.channel.send(parseInt(b.from(a)));
 }
