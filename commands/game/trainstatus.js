@@ -39,7 +39,7 @@ module.exports.run = async(bot, message, args) => {
         let timeleft = 5 - timefrom;
         if(!timefrom) timeleft = 5;
         
-        let nextlvl = Math.ceil(Math.pow(user.lvl, 2.5));
+        let nextlvl = Math.ceil(Math.pow(char.lvl, 2.5));
 
         if(char.park === false) return message.reply("**You are currently not training**");
 
