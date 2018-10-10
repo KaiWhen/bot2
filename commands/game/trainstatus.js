@@ -39,17 +39,31 @@ module.exports.run = async(bot, message, args) => {
         let timeleft = 5 - timefrom;
         if(!timefrom) timeleft = 5;
         
+        let nextlvl = Math.ceil(Math.pow(user.lvl, 2.5));
 
-        if(char.park === false) return message.reply("**You are not currently training**");
+        if(char.park === false) return message.reply("**You are currently not training**");
 
         if(char.park === true && timeleft <= 0){
-            char.charxp = char.charxp + 10;
-            statEmbed.addField("You have completed your training session!", `+10 EXP\n`);
+            let xprn = Math.ceil(Math.random()*4);
+            char.charxp = char.charxp + xprnd;
+            statEmbed.addField("You have completed your training session!", `+${xprnd} EXP`);
             char.park = false;
+            message.channel.send(statEmbed);
+            
+            if(char.exp >= nextlvl){
+                user.lvl = user.lvl + 1;
+                let lvlupEmbed = new Discord.RichEmbed()
+                .setTitle("**Your character leveled up!**")
+                .setThumbnail("../../images/greenarrow.png")
+                .setColor("#32CD32")
+                .setDescription(`${message.author.username}, you are now level ${char.lvl}!`);
+                message.channel.send(lvlupEmbed);
+            }
+
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
-            return message.channel.send(statEmbed);
+            return;
         }
             
         else if(char.park === true && timeleft > 0){
