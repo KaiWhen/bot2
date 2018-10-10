@@ -37,7 +37,7 @@ module.exports.run = async(bot, message, args) => {
             
             trainEmbed.setDescription("You have decided to train in the park!\n\nDuration: 5 minutes\n\n,trainstatus to check your progress");
             char.park = true;
-            let timenow = moment().format("L LT");
+            let timenow = moment().toISOString("L LT");
             char.time = timenow;
             char.save()
             .then(result => console.log(result))

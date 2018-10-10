@@ -34,13 +34,12 @@ module.exports.run = async(bot, message, args) => {
         .setThumbnail(message.author.displayAvatarURL);
         
         let timenow = moment().format("L LT");
-        chartimee = moment().toISOString(char.time);
-        let chartime = moment(chartimee);
+        chartime = moment(char.time);
         let timeleft = 5 - parseInt(chartime.from(timenow));
 
-        if(char.park === false) return message.reply("**You are not currently training.**")
+        
 
-        if(char.park === true && timeleft <= 0){
+        if(char.park === true && timeleft > 5){
             char.charxp = char.charxp + 10;
             statEmbed.addField("You have completed your training session!", `+10 EXP\n`);
             char.park = false;
@@ -51,17 +50,15 @@ module.exports.run = async(bot, message, args) => {
         }
             
 
-        else if(char.park === true && timeleft > 0){
+        else if(char.park === true && timeleft < 5){
             
             statEmbed.addField("Time Remaining", `${timeleft} minutes`);
             return message.channel.send(statEmbed);
 
-        }//else if(char.park === true && timeleft === 5){
-            
-        //     statEmbed.addField("Time Remaining", `${timeleft} minutes`);
-        //     return message.channel.send(statEmbed);
-
-        // }
+        }else{
+            statEmbed.addField("Time Remaining", `1 minute`);
+            return message.channel.send(statEmbed);
+        }
     });
 }
 
