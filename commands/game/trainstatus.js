@@ -39,24 +39,32 @@ module.exports.run = async(bot, message, args) => {
         let timeleft = 5 - timefrom;
         if(!timefrom) timeleft = 5;
         
-        let nextlvl = Math.ceil(Math.pow(char.lvl, 2.5));
+        let nextlvl = Math.ceil(Math.pow(char.lvl, 3));
         console.log(nextlvl);
 
         if(char.park === false) return message.reply("**You are currently not training**");
 
         if(char.park === true && timeleft <= 0){
-            let xprnd = Math.ceil(Math.random()*4);
+            let xprnd = Math.ceil(Math.random()*2)+4;
             char.charxp = char.charxp + xprnd;
             statEmbed.addField("You have completed your training session!", `+${xprnd} EXP`);
             char.park = false;
-            
+            message.channel.send(statEmbed);
 
-            
+            if(char.exp >= nextlvl){
+                char.lvl = char.lvl + 1;
+                let lvlupEmbed = new Discord.RichEmbed()
+                .setTitle("**Your character leveled up!**")
+                .setThumbnail("../../images/greenarrow.png")
+                .setColor("#32CD32")
+                .setDescription(`${message.author.username}, you are now level ${char.lvl-1}!`);
+                message.channel.send(lvlupEmbed);
+            }
 
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
-            message.channel.send(statEmbed);
+            return;
         }
             
         else if(char.park === true && timeleft > 0){
@@ -66,19 +74,7 @@ module.exports.run = async(bot, message, args) => {
 
         }
 
-        if(char.exp >= nextlvl){
-            char.lvl = char.lvl + 1;
-            let lvlupEmbed = new Discord.RichEmbed()
-            .setTitle("**Your character leveled up!**")
-            .setThumbnail("../../images/greenarrow.png")
-            .setColor("#32CD32")
-            .setDescription(`${message.author.username}, you are now level ${char.lvl-1}!`);
-            char.save()
-            .then(result => console.log(result))
-            .catch(err => console.log(err));
-            return message.channel.send(lvlupEmbed);
-        }
-        return;
+       
 
     });
 }
