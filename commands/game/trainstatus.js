@@ -37,7 +37,7 @@ module.exports.run = async(bot, message, args) => {
         chartime = moment(char.time);
         let timeleft = parseInt(chartime.from(timenow));
 
-        if(char.park === true && timeleft > 1){
+        if(char.park === true && timeleft > 5){
             char.charxp = char.charxp + 10;
             statEmbed.addField("You have completed your training session!", `+10 EXP\n`);
             char.park = false;
@@ -48,7 +48,7 @@ module.exports.run = async(bot, message, args) => {
         }
             
 
-        else if(char.park === true && timeleft < 1){
+        else if(char.park === true && timeleft < 5){
             
             statEmbed.addField("Time remaining", `${timeleft} minutes`);
             return message.channel.send(statEmbed);
