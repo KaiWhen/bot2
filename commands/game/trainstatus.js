@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const charData = require("../../models/game.js");
 const moment = require("moment");
 const mongoose = require("mongoose");
-const DateTime = require("date-time-js");
+const DateTime = require("./source/date-time");
 
 module.exports.run = async(bot, message, args) => {
     
@@ -35,7 +35,7 @@ module.exports.run = async(bot, message, args) => {
         .setThumbnail(message.author.displayAvatarURL);
         
         let timenow = moment().toISOString();
-        
+        DateTime()
         //chartime = moment(char.time);
         //let timefrom = parseInt(chartime.from(timenow));
         //console.log(timefrom);
