@@ -30,7 +30,7 @@ module.exports.run = async(bot, message, args) => {
         }
 
         let statEmbed = new Discord.RichEmbed()
-        .setTitle("Training Status 🏋")
+        .setTitle("Training Status🏋")
         .setThumbnail(message.author.displayAvatarURL);
         
         let timenow = moment().toISOString("L LT");

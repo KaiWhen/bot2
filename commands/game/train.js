@@ -35,7 +35,8 @@ module.exports.run = async(bot, message, args) => {
 
         if(place === "park" && char.park === false){
             
-            trainEmbed.setDescription("You have decided to train in the park!\n\nDuration: 5 minutes\n\n,trainstatus to check your progress");
+            trainEmbed.setDescription("You have decided to train in the park!");
+            trainEmbed.addField("Duration: 5 minutes", "`,trainstatus` to check your progress");
             char.park = true;
             let timenow = moment().toISOString("L LT");
             char.time = timenow;
@@ -44,7 +45,9 @@ module.exports.run = async(bot, message, args) => {
             .catch(err => console.log(err));
             return message.channel.send(trainEmbed);
         }else{
-            return message.reply("**Please specify what place you want to go and train.**");
+            message.reply("**Please specify what place you want to go and train.**");
+            trainEmbed.addField("Places to train", "`park` not available yet: `beach` `gym` `dojo`");
+            return message.channel.send(trainEmbed);
         }
     });
 
