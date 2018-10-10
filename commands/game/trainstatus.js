@@ -55,7 +55,7 @@ module.exports.run = async(bot, message, args) => {
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
-            return message.channel.send(statEmbed);
+            message.channel.send(statEmbed);
         }
             
         else if(char.park === true && timeleft > 0){
@@ -77,6 +77,7 @@ module.exports.run = async(bot, message, args) => {
             .catch(err => console.log(err));
             return message.channel.send(lvlupEmbed);
         }
+        return;
 
     });
 }
