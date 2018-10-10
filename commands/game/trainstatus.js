@@ -35,9 +35,11 @@ module.exports.run = async(bot, message, args) => {
         
         let timenow = moment().format("L LT");
         chartime = moment(char.time);
-        let timeleft = parseInt(chartime.from(timenow));
+        let timeleft = 5 - parseInt(chartime.from(timenow));
 
-        if(char.park === true && timeleft > 5){
+        if(char.park === false) return message.reply("**You are not currently training.**")
+
+        if(char.park === true && timeleft <= 0){
             char.charxp = char.charxp + 10;
             statEmbed.addField("You have completed your training session!", `+10 EXP\n`);
             char.park = false;
@@ -48,14 +50,17 @@ module.exports.run = async(bot, message, args) => {
         }
             
 
-        else if(char.park === true && timeleft < 5){
+        else if(char.park === true && timeleft > 0){
             
-            statEmbed.addField("Time elapsed", `${timeleft} minutes`);
+            statEmbed.addField("Time Remaining", `${timeleft} minutes`);
             return message.channel.send(statEmbed);
 
-        }else{
-            return message.reply("**You are not currently training.**");
-        }
+        }//else if(char.park === true && timeleft === 5){
+            
+        //     statEmbed.addField("Time Remaining", `${timeleft} minutes`);
+        //     return message.channel.send(statEmbed);
+
+        // }
     });
 }
 
