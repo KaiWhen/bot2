@@ -33,7 +33,7 @@ module.exports.run = async(bot, message, args) => {
         .setTitle("Training Status 🏋")
         .setThumbnail(message.author.displayAvatarURL);
         
-        let timenow = moment().format("L LT");
+        let timenow = moment().toISOString("L LT");
         chartime = moment(char.time);
         let timeleft = 5 - parseInt(chartime.from(timenow));
 
@@ -49,11 +49,14 @@ module.exports.run = async(bot, message, args) => {
             return message.channel.send(statEmbed);
         }
             
-        else if(char.park === true && timeleft > 0){
+        else if(char.park === true && timeleft > 0 && timeleft <=5){
             
-            statEmbed.addField("Time Remaining", `${timeleft} minutes`);
+            statEmbed.addField("Time Remaining", `${timeleft} minute(s)`);
             return message.channel.send(statEmbed);
 
+        }else if(char.park === true && timeleft === 5){
+            statEmbed.addField("Time Remaining", `5 minute(s)`);
+            return message.channel.send(statEmbed);
         }
 
     });

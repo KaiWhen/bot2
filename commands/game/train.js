@@ -33,7 +33,7 @@ module.exports.run = async(bot, message, args) => {
         let trainEmbed = new Discord.RichEmbed()
         .setTitle("Training");
 
-        if(place === "park"){
+        if(place === "park" && char.park === false){
             
             trainEmbed.setDescription("You have decided to train in the park!\n\nDuration: 5 minutes\n\n,trainstatus to check your progress");
             char.park = true;
