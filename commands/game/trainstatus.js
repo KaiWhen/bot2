@@ -4,7 +4,7 @@ const moment = require("moment");
 
 module.exports.run = async(bot, message, args) => {
     
-    gameData.findOne({
+    charData.findOne({
         userID: message.author.id
     }, (err, char) => {
         if(err) console.log(err);
@@ -29,12 +29,32 @@ module.exports.run = async(bot, message, args) => {
         }
 
         let statEmbed = new Discord.RichEmbed()
-        .setTitle("Training Status");
+        .setTitle("Training Status")
+        .setThumbnail(message.author.displayAvatarURL);
+        
+        let timenow = moment().format("L LT");
+        let timeleft = parseInt(char.time.from(timenow));
 
-        if(char.park === true){
-            let timenow = moment().format("L LT");
-            let timeleft = char.time.from(timenow).pop()===" minutes ago";
+        if(char.park === true && timeleft > 1){
+            char.charxp = char.charxp + 10;
+            statEmbed.addField("You have completed your training session!", `+10 EXP\n`);
+            message.channel.send(statEmbed);
+            char.park = false;
+            char.save()
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
+            return;
+        }
+            
+
+        else if(char.park === true && timeleft < 1){
+            
             statEmbed.addField("Time remaining", `${timeleft} minutes`);
+            message.channel.send(statEmbed);
+            return;
+
+        }else{
+            return message.reply("**You are not currently training.**");
         }
     });
 }
