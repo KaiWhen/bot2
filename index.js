@@ -40,6 +40,7 @@ load("./commands/fun/");
 load("./commands/moderation/");
 load("./commands/economy/");
 load("./commands/other/");
+load("./commands/game/");
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is running`);
