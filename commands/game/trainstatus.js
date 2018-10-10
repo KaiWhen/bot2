@@ -44,7 +44,7 @@ module.exports.run = async(bot, message, args) => {
         if(char.park === false) return message.reply("**You are currently not training**");
 
         if(char.park === true && timeleft <= 0){
-            let xprn = Math.ceil(Math.random()*4);
+            let xprnd = Math.ceil(Math.random()*4);
             char.charxp = char.charxp + xprnd;
             statEmbed.addField("You have completed your training session!", `+${xprnd} EXP`);
             char.park = false;
