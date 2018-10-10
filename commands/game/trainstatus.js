@@ -48,22 +48,14 @@ module.exports.run = async(bot, message, args) => {
             char.charxp = char.charxp + xprnd;
             statEmbed.addField("You have completed your training session!", `+${xprnd} EXP`);
             char.park = false;
-            message.channel.send(statEmbed);
+            
 
-            if(char.exp >= nextlvl){
-                char.lvl = char.lvl + 1;
-                let lvlupEmbed = new Discord.RichEmbed()
-                .setTitle("**Your character leveled up!**")
-                .setThumbnail("../../images/greenarrow.png")
-                .setColor("#32CD32")
-                .setDescription(`${message.author.username}, you are now level ${char.lvl}!`);
-                message.channel.send(lvlupEmbed);
-            }
+            
 
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
-            return;
+            return message.channel.send(statEmbed);
         }
             
         else if(char.park === true && timeleft > 0){
@@ -71,6 +63,19 @@ module.exports.run = async(bot, message, args) => {
             statEmbed.addField("Time Remaining", `${timeleft} minute(s)`);
             return message.channel.send(statEmbed);
 
+        }
+
+        if(char.exp >= nextlvl){
+            char.lvl = char.lvl + 1;
+            let lvlupEmbed = new Discord.RichEmbed()
+            .setTitle("**Your character leveled up!**")
+            .setThumbnail("../../images/greenarrow.png")
+            .setColor("#32CD32")
+            .setDescription(`${message.author.username}, you are now level ${char.lvl-1}!`);
+            char.save()
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
+            return message.channel.send(lvlupEmbed);
         }
 
     });
