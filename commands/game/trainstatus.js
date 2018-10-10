@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const charData = require("../../models/game.js");
 const moment = require("moment");
 const mongoose = require("mongoose");
-const DateTime = require("date-time-js/source/date-time.js");
 
 module.exports.run = async(bot, message, args) => {
     
