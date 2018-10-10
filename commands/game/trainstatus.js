@@ -34,7 +34,7 @@ module.exports.run = async(bot, message, args) => {
         .setThumbnail(message.author.displayAvatarURL);
         
         let timenow = moment().format("L LT");
-        chartime = char.time;
+        chartime = moment(char.time);
         let timeleft = parseInt(chartime.from(timenow));
 
         if(char.park === true && timeleft > 1){
