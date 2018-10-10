@@ -34,7 +34,8 @@ module.exports.run = async(bot, message, args) => {
         .setThumbnail(message.author.displayAvatarURL);
         
         let timenow = moment().format("L LT");
-        chartime = moment().toISOString(char.time);
+        chartimee = moment().toISOString(char.time);
+        let chartime = moment(chartimee);
         let timeleft = 5 - parseInt(chartime.from(timenow));
 
         if(char.park === false) return message.reply("**You are not currently training.**")
