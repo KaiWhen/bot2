@@ -16,7 +16,7 @@ module.exports.run = async(bot, message, args) => {
                 userID: message.author.id,
                 username: message.author.username,
                 charxp: 0,
-                charlvl: 0,
+                charlvl: 1,
                 strength: 5,
                 defence: 5,
                 time: "not active",
