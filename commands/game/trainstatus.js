@@ -33,7 +33,7 @@ module.exports.run = async(bot, message, args) => {
         .setTitle("Training Status🏋")
         .setThumbnail(message.author.displayAvatarURL);
         
-        let timenow = moment().toISOString("L LT");
+        let timenow = moment().toISOString();
         chartime = moment(char.time);
         let timefrom = parseInt(chartime.from(timenow));
         console.log(timefrom);
