@@ -8,8 +8,7 @@ module.exports.run = async(bot, message, args) => {
     // let bb = b.toISOString();
     // //message.channel.send(parseInt(b.from(a)));
     // let added = moment(bb.add(5, 'seconds'));
-    let timefrom = moment.duration(chartime.from(timenow)).asMinutes;
-    message.channel.send(timefrom);
+    message.channel.send(moment().toISOString());
 }
 
 module.exports.help = {

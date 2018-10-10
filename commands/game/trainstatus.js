@@ -35,8 +35,8 @@ module.exports.run = async(bot, message, args) => {
         
         let timenow = moment().toISOString();
         chartime = moment(char.time);
-        //let timefrom = parseInt(chartime.from(timenow));
-        let timefrom = moment.duration(chartime.from(timenow)).asMinutes;
+        let timefrom = parseInt(chartime.from(timenow));
+        //let timefrom = moment.duration(chartime.from(timenow)).asMinutes;
         console.log(timefrom);
         let timeleft = 5 - timefrom;
         //if(!timefrom) timeleft = 5;
