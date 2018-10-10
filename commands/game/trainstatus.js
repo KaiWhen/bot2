@@ -36,8 +36,9 @@ module.exports.run = async(bot, message, args) => {
         let timenow = moment().toISOString("L LT");
         chartime = moment(char.time);
         let timefrom = parseInt(chartime.from(timenow));
+        console.log(timefrom);
         let timeleft = 5 - timefrom;
-        if(!timefrom) timeleft = 5;
+        //if(!timefrom) timeleft = 5;
         
         let nextlvl = Math.ceil(Math.pow(char.charlvl, 2.5));
         console.log(nextlvl);
