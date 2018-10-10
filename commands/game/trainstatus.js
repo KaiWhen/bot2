@@ -39,20 +39,18 @@ module.exports.run = async(bot, message, args) => {
         if(char.park === true && timeleft > 1){
             char.charxp = char.charxp + 10;
             statEmbed.addField("You have completed your training session!", `+10 EXP\n`);
-            message.channel.send(statEmbed);
             char.park = false;
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
-            return;
+            return message.channel.send(statEmbed);
         }
             
 
         else if(char.park === true && timeleft < 1){
             
             statEmbed.addField("Time remaining", `${timeleft} minutes`);
-            message.channel.send(statEmbed);
-            return;
+            return message.channel.send(statEmbed);
 
         }else{
             return message.reply("**You are not currently training.**");

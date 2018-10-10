@@ -39,11 +39,12 @@ module.exports.run = async(bot, message, args) => {
             char.park = true;
             let timenow = moment().format("L LT");
             char.time = timenow;
-            message.channel.send(trainEmbed);
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
-            return;
+            return message.channel.send(trainEmbed);
+        }else{
+            return message.reply("idc rn rojoergt");
         }
     });
 
