@@ -49,9 +49,9 @@ module.exports.run = async(bot, message, args) => {
             statEmbed.addField("You have completed your training session!", `+${xprnd} EXP`);
             char.park = false;
             message.channel.send(statEmbed);
-            
+
             if(char.exp >= nextlvl){
-                user.lvl = user.lvl + 1;
+                char.lvl = char.lvl + 1;
                 let lvlupEmbed = new Discord.RichEmbed()
                 .setTitle("**Your character leveled up!**")
                 .setThumbnail("../../images/greenarrow.png")
