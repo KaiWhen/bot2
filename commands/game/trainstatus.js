@@ -34,11 +34,10 @@ module.exports.run = async(bot, message, args) => {
         .setThumbnail(message.author.displayAvatarURL);
         
         let timenow = moment().toISOString();
-        //DateTime()
-        //chartime = moment(char.time);
-        //let timefrom = parseInt(chartime.from(timenow));
-        //console.log(timefrom);
-        //let timeleft = 5 - timefrom;
+        chartime = moment(char.time);
+        let timefrom = parseInt(chartime.from(timenow));
+        console.log(timefrom);
+        let timeleft = 5 - timefrom;
         //if(!timefrom) timeleft = 5;
         
         let nextlvl = Math.ceil(Math.pow(char.charlvl, 2.5));
