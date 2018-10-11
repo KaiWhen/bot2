@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const userData = require("./models/userData");
 const Schema = mongoose.Schema;
 const mongoDB = process.env.MONGODB_URI;
-mongoose.connect(mongoDB);
+mongoose.connect(mongoDB, {useNewUrlParser: true});
 //mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
