@@ -32,6 +32,7 @@ function load(dir){
         let props = require(`${dir}${f}`);
         console.log(`${f} loaded yay!`);
         bot.commands.set(props.help.name, props);
+        bot.commands.set(props.help.aliases, props);
     });
 });
 }
