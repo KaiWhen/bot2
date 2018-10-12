@@ -35,8 +35,8 @@ module.exports.run = async(bot, message, args) => {
         let woodlvl = Math.floor(char.lvl/3);
         let woodplus = woodstr + woodlvl;
         console.log(woodplus);
-        let woodrnd = Math.ceil(Math.random()*6);
-        let woodgain = woodrnd + woodstr;
+        let woodrnd = Math.ceil(Math.random()*5);
+        let woodgain = woodrnd + woodplus;
         let woodexprnd = Math.floor(Math.random()*3);
         let woodexpgain = woodexprnd + Math.ceil(char.woodlvl*2)
         let nextwoodlvl = Math.floor(Math.pow(char.woodlvl, 2.5));
