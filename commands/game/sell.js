@@ -46,7 +46,7 @@ module.exports.run = async(bot, message, args) => {
                 .setTitle(`${message.author.username} - Sell💰`)
                 .setColor("#228B22")
                 .setDescription("Successfully sold!")
-                .addField("Sold", `${amnt} ${resource}`)
+                .addField("Sold", `\`\`\`${amnt} ${resource}\`\`\``);
 
 
                 if(resource === "wood"){
@@ -55,7 +55,7 @@ module.exports.run = async(bot, message, args) => {
                     }else{
                         user.money = user.money + sellamnt;
                         char.wood = char.wood - amnt;
-                        sellEmbed.addField("Amount", `\`\`\`${sellamnt} KaiKoins\`\`\`\``);
+                        sellEmbed.addField("Amount", `\`\`\`${sellamnt} KaiKoins\`\`\``);
                         char.save()
                         .then(result => console.log(result))
                         .catch(err => console.log(err));
