@@ -4,8 +4,7 @@ const mongoose = require("mongoose");
 
 module.exports.run = async(bot, message, args) => {
 
-    const ratelimit = new Map();
-    if(ratelimit.get(message.author.id) < Date.now()) return message.reply("Please wait until you finish!");
+    
     charData.findOne({
         userID: message.author.id
     }, (err, char) => {
@@ -32,6 +31,8 @@ module.exports.run = async(bot, message, args) => {
             .catch(err => console.log(err));
             return message.channel.send("**Please try again**");
         }
+        const ratelimit = new Map();
+        if(ratelimit.get(message.author.id) < Date.now()) return message.reply("Please wait until you finish!");
         
         let woodact = true;
         let woodstr = Math.floor(char.strength/5);
