@@ -16,7 +16,11 @@ const charData = new Schema({
     wood: Number,
     woodexp: Number,
     woodlvl: Number,
-    woodact: Boolean
+    fish: Number,
+    fishexp: Number,
+    fishlvl: Number,
+    minexp: Number,
+    minelvl: Number
 });
 
 module.exports = mongoose.model("charData", charData);
