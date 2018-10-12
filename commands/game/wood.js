@@ -57,6 +57,8 @@ module.exports.run = async(bot, message, args) => {
         .setTitle("**You are back from woodcutting!**")
         .setColor("#855e42");
             
+        ratelimit.set(message.author.id, Date.now() + 16000);
+
         setTimeout(function(){
             char.wood = char.wood + woodgain;
             char.woodexp = char.woodexp + woodexpgain;
@@ -83,9 +85,9 @@ module.exports.run = async(bot, message, args) => {
             }, 1000);
         }, 15000);
 
-        ratelimit.set(message.author.id, Date.now() + 16000);
+        
 
-    return;
+    
     });
 }
 
