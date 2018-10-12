@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 
 module.exports.run = async(bot, message, args) => {
 
+    const ratelimit = new Map();
+    if(ratelimit.get(message.author.id) < Date.now()) return message.reply("Please wait until you finish!");
     charData.findOne({
         userID: message.author.id
     }, (err, char) => {
@@ -31,7 +33,7 @@ module.exports.run = async(bot, message, args) => {
             return message.channel.send("**Please try again**");
         }
         
-        let woodact;
+        let woodact = true;
         let woodstr = Math.floor(char.strength/5);
         let woodlvl = Math.floor(char.woodlvl/3);
         let woodplus = woodstr + woodlvl;
@@ -42,20 +44,13 @@ module.exports.run = async(bot, message, args) => {
         let woodexpgain = woodexprnd + Math.ceil(char.woodlvl*2)
         let nextwoodlvl = Math.floor(Math.pow(char.woodlvl, 2.5));
 
-        if(woodact === false){
-            return message.reply("You are already gone woodcutting!");
-        }else{
-            woodact = true;
-        }
-        
 
-        if(woodact === true){
-            let woodEmbed = new Discord.RichEmbed()
+        let woodEmbed = new Discord.RichEmbed()
         .setTitle("Woodcutting🌲")
         .setColor("#855e42")
         .setDescription("You are off to cut some wood for a little while...");
         message.channel.send(woodEmbed);
-        woodact = false;
+        
 
         let woodGainEmbed = new Discord.RichEmbed()
         .setAuthor("Woodcutting🌲")
@@ -88,9 +83,7 @@ module.exports.run = async(bot, message, args) => {
             }, 1000);
         }, 15000);
 
-    }
-
-        
+        ratelimit.set(message.author.id, Date.now() + 16000);
 
     return;
     });

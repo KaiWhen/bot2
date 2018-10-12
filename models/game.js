@@ -15,7 +15,8 @@ const charData = new Schema({
     dojo: Boolean,
     wood: Number,
     woodexp: Number,
-    woodlvl: Number
+    woodlvl: Number,
+    woodact: Boolean
 });
 
 module.exports = mongoose.model("charData", charData);
