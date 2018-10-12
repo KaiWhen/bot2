@@ -41,17 +41,26 @@ module.exports.run = async(bot, message, args) => {
         let woodexpgain = woodexprnd + Math.ceil(char.woodlvl*2)
         let nextwoodlvl = Math.floor(Math.pow(char.woodlvl, 2.5));
 
-        let woodEmbed = new Discord.RichEmbed()
+        if(woodact === false){
+            return message.reply("You are already gone woodcutting!");
+        }else{
+            woodact = true;
+        }
+        
+
+        if(woodact === true){
+            let woodEmbed = new Discord.RichEmbed()
         .setTitle("Woodcutting🌲")
         .setColor("#855e42")
         .setDescription("You are off to cut some wood for a little while...");
         message.channel.send(woodEmbed);
+        woodact = false;
 
         let woodGainEmbed = new Discord.RichEmbed()
         .setAuthor("Woodcutting🌲")
         .setTitle("**You are back from woodcutting!**")
         .setColor("#855e42");
-
+            
         setTimeout(function(){
             char.wood = char.wood + woodgain;
             char.woodexp = char.woodexp + woodexpgain;
@@ -62,6 +71,7 @@ module.exports.run = async(bot, message, args) => {
             .then(result => console.log(result))
             .catch(err => console.log(err));
             setTimeout(function(){
+                
                 if(char.woodexp >= nextwoodlvl){
                     char.woodlvl = char.woodlvl + 1;
                     let lvlupEmbed = new Discord.RichEmbed()
@@ -76,6 +86,8 @@ module.exports.run = async(bot, message, args) => {
                 }
             }, 1000);
         }, 15000);
+
+    }
 
         
 
