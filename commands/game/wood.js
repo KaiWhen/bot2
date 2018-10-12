@@ -32,7 +32,7 @@ module.exports.run = async(bot, message, args) => {
         }
 
         let woodstr = Math.floor(char.strength/5);
-        let woodlvl = Math.floor(char.lvl/3);
+        let woodlvl = Math.floor(char.woodlvl/3);
         let woodplus = woodstr + woodlvl;
         console.log(woodplus);
         let woodrnd = Math.ceil(Math.random()*5);
