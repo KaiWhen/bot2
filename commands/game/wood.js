@@ -61,20 +61,23 @@ module.exports.run = async(bot, message, args) => {
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
+            setTimeout(function(){
+                if(char.woodexp >= nextwoodlvl){
+                    char.woodlvl = char.woodlvl + 1;
+                    let lvlupEmbed = new Discord.RichEmbed()
+                    .setTitle("**Your woodcutting skills leveled up!**")
+                    //.setThumbnail("../../images/greenarrow.png")
+                    .setColor("#32CD32")
+                    .setDescription(`${message.author.username}, you now have a woodcutting skill level of ${char.woodlvl-1}!`);
+                    message.channel.send(lvlupEmbed);
+                    char.save()
+                    .then(result => console.log(result))
+                    .catch(err => console.log(err));
+                }
+            }, 1000);
         }, 15000);
 
-        if(char.woodexp >= nextwoodlvl){
-            char.woodlvl = char.woodlvl + 1;
-            let lvlupEmbed = new Discord.RichEmbed()
-            .setTitle("**Your character leveled up!**")
-            //.setThumbnail("../../images/greenarrow.png")
-            .setColor("#32CD32")
-            .setDescription(`${message.author.username}, you are now level ${char.woodlvl-1}!`);
-            message.channel.send(lvlupEmbed);
-            char.save()
-            .then(result => console.log(result))
-            .catch(err => console.log(err));
-        }
+        
 
     return;
     });
