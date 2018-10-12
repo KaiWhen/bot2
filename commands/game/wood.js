@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const charData = require("../../models/game.js");
 const mongoose = require("mongoose");
+const ratelimit = new Map();
 
 module.exports.run = async(bot, message, args) => {
 
@@ -32,7 +33,7 @@ module.exports.run = async(bot, message, args) => {
             return message.channel.send("**Please try again**");
         }
 
-        const ratelimit = new Map();
+       
         if(ratelimit.get(message.author.id) < Date.now()) return message.reply("Please wait until you finish!");
         
         let woodact = true;
