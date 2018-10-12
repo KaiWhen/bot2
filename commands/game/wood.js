@@ -30,7 +30,8 @@ module.exports.run = async(bot, message, args) => {
             .catch(err => console.log(err));
             return message.channel.send("**Please try again**");
         }
-
+        
+        let woodact;
         let woodstr = Math.floor(char.strength/5);
         let woodlvl = Math.floor(char.woodlvl/3);
         let woodplus = woodstr + woodlvl;
