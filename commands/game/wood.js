@@ -31,7 +31,10 @@ module.exports.run = async(bot, message, args) => {
             return message.channel.send("**Please try again**");
         }
 
-        let woodstr = Math.floor(char.strength/5 + char.woodlvl/3);
+        let woodstr = Math.floor(char.strength/5);
+        let woodlvl = Math.floor(char.lvl/3);
+        let woodplus = woodstr + woodlvl;
+        console.log(woodplus);
         let woodrnd = Math.ceil(Math.random()*6);
         let woodgain = woodrnd + woodstr;
         let woodexprnd = Math.floor(Math.random()*3);
@@ -73,7 +76,7 @@ module.exports.run = async(bot, message, args) => {
             .catch(err => console.log(err));
         }
 
-        
+    return;
     });
 }
 
