@@ -32,9 +32,8 @@ module.exports.run = async(bot, message, args) => {
             return message.channel.send("**Please try again**");
         }
 
-        var cooltime = Date.now();
-        const ratelimit = new Map()
-        if(ratelimit.get(message.author.id) < cooltime) return message.reply("Please wait until you finish!");
+        const ratelimit = new Map();
+        if(ratelimit.get(message.author.id) < Date.now()) return message.reply("Please wait until you finish!");
         
         let woodact = true;
         let woodstr = Math.floor(char.strength/5);
@@ -71,7 +70,6 @@ module.exports.run = async(bot, message, args) => {
             .then(result => console.log(result))
             .catch(err => console.log(err));
             setTimeout(function(){
-                
                 if(char.woodexp >= nextwoodlvl){
                     char.woodlvl = char.woodlvl + 1;
                     let lvlupEmbed = new Discord.RichEmbed()
@@ -87,7 +85,7 @@ module.exports.run = async(bot, message, args) => {
             }, 1000);
         }, 15000);
 
-        ratelimit.set(message.author.id, cooltime + 16000);
+        ratelimit.set(message.author.id, Date.now() + 16000);
 
     
     });
