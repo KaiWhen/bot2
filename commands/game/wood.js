@@ -67,7 +67,7 @@ module.exports.run = async(bot, message, args) => {
             char.woodlvl = char.woodlvl + 1;
             let lvlupEmbed = new Discord.RichEmbed()
             .setTitle("**Your character leveled up!**")
-            .setThumbnail("../../images/greenarrow.png")
+            //.setThumbnail("../../images/greenarrow.png")
             .setColor("#32CD32")
             .setDescription(`${message.author.username}, you are now level ${char.woodlvl-1}!`);
             message.channel.send(lvlupEmbed);
