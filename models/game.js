@@ -12,7 +12,10 @@ const charData = new Schema({
     time: String,
     park: Boolean,
     gym: Boolean,
-    dojo: Boolean
+    dojo: Boolean,
+    wood: Number,
+    woodexp: Number,
+    woodlvl: Number
 });
 
 module.exports = mongoose.model("charData", charData);

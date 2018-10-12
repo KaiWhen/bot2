@@ -22,7 +22,8 @@ module.exports.run = async(bot, message, args) => {
                 time: "not active",
                 park: false,
                 gym: false,
-                dojo: false
+                dojo: false,
+                wood: 0
             })
             newChar.save()
             .then(result => console.log(result))
