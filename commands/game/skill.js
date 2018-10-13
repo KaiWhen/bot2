@@ -1,4 +1,6 @@
 const Discord = require("discord.js");
+const charData = require("../../models/game.js");
+const mongoose = require("mongoose");
 
 module.exports.run = async(bot, message, args) => {
 
@@ -41,6 +43,8 @@ module.exports.run = async(bot, message, args) => {
         .addField("Tree-cutting", `Level: ${char.woodlvl}\nEXP: ${char.woodexp}`, true)
         .addField("Fishing", `Level: ${char.fishlvl}\nEXP: ${char.fishexp}`, true)
         .addField("Mining", `Level: ${char.minelvl}\nEXP: ${char.minexp}`, true);
+
+        message.channel.send(skillEmbed);
 
     });
 }
