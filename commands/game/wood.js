@@ -63,7 +63,7 @@ module.exports.run = async(bot, message, args) => {
 
 
         let woodEmbed = new Discord.RichEmbed()
-        .setTitle("Woodcutting🌲")
+        .setTitle("Tree-cutting🌲")
         .setColor("#855e42")
         .setDescription("You are off to cut trees for a little while...");
         message.channel.send(woodEmbed);
