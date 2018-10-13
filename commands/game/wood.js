@@ -60,21 +60,21 @@ module.exports.run = async(bot, message, args) => {
         let woodEmbed = new Discord.RichEmbed()
         .setTitle("Woodcutting🌲")
         .setColor("#855e42")
-        .setDescription("You are off to cut some wood for a little while...");
+        .setDescription("You are off to cut trees for a little while...");
         message.channel.send(woodEmbed);
         
 
         let woodGainEmbed = new Discord.RichEmbed()
-        .setAuthor("Woodcutting🌲")
-        .setTitle("**You are back from woodcutting!**")
+        .setAuthor("Tree-cutting🌲")
+        .setTitle("**You are back from cutting trees!**")
         .setColor("#855e42");
             
 
         setTimeout(() => {
             char.wood = char.wood + woodgain;
             char.woodexp = char.woodexp + woodexpgain;
-            woodGainEmbed.addField("Wood Gained", `+${woodgain}`, true);
-            woodGainEmbed.addField("Woodcutting EXP Gained", `+${woodexpgain}`);
+            woodGainEmbed.addField("Wood Gained", `+#32CD32\`\`\`${woodgain}\`\`\``, true);
+            woodGainEmbed.addField("Tree-cutting EXP Gained", `+#32CD32\`\`\`${woodexpgain}\`\`\``, true);
             message.channel.send(woodGainEmbed);
             char.save()
             .then(result => console.log(result))
@@ -83,10 +83,10 @@ module.exports.run = async(bot, message, args) => {
                 if(char.woodexp >= nextwoodlvl){
                     char.woodlvl = char.woodlvl + 1;
                     let lvlupEmbed = new Discord.RichEmbed()
-                    .setTitle("**Your woodcutting skills leveled up!**")
+                    .setTitle("**Your tree-cutting skills leveled up!**")
                     //.setThumbnail("../../images/greenarrow.png")
                     .setColor("#32CD32")
-                    .setDescription(`${message.author.username}, you now have a woodcutting skill level of ${char.woodlvl-1}!`);
+                    .setDescription(`${message.author.username}, you now have a tree-cutting skill level of #32CD32${char.woodlvl-1}!`);
                     message.channel.send(lvlupEmbed);
                     char.save()
                     .then(result => console.log(result))

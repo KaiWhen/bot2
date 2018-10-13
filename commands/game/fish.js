@@ -75,8 +75,8 @@ module.exports.run = async(bot, message, args) => {
         setTimeout(function(){
             char.fish = char.fish + fishgain;
             char.fishexp = char.fishexp + fishexpgain;
-            fishGainEmbed.addField("Fish Caught", `+${fishgain}`, true);
-            fishGainEmbed.addField("Fishing EXP Gained", `+${fishexpgain}`);
+            fishGainEmbed.addField("Fish Caught", `+\`\`\`${fishgain}\`\`\``, true);
+            fishGainEmbed.addField("Fishing EXP Gained", `+\`\`\`${fishexpgain}\`\`\``, true);
             message.channel.send(fishGainEmbed);
             char.save()
             .then(result => console.log(result))
