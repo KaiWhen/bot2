@@ -48,6 +48,9 @@ module.exports.run = async(bot, message, args) => {
 
         if(char.active === false){
         char.active = true
+        char.save()
+        .then(result => console.log(result))
+        .catch(err => console.log(err));
         let woodstr = Math.floor(char.strength/5);
         let woodlvl = Math.floor(char.woodlvl/3);
         let woodplus = woodstr + woodlvl;
@@ -103,7 +106,7 @@ module.exports.run = async(bot, message, args) => {
     }else{
         return message.channel.send("uirshfuihwefuihwef");
     }
-    
+
     });
 }
 
