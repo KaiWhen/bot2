@@ -51,7 +51,7 @@ module.exports.run = async(bot, message, args) => {
             let timeparkleft = timepark - Date.now();
             let timeparkObj = ms(timeparkleft);
             statEmbed.addField("Location", "Park", true);
-            statEmbed.addField("Time Remaining", `${timeparkObj.minutes} minute(s) and ${timeparkObj.seconds} seconds`);
+            statEmbed.addField("Time Remaining", `${timeparkObj} minute(s) and ${timeparkObj.seconds} seconds`);
             return message.channel.send(statEmbed);
         }
 
