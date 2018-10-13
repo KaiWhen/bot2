@@ -48,7 +48,7 @@ module.exports.run = async(bot, message, args) => {
 
         if(place === "park" && char.park === false){
             
-            trainEmbed.setDescription("You have decided to train in the park!");
+            trainEmbed.setDescription("You have decided to train in the park!\n`,trainstatus` to check your progress.");
             trainEmbed.addField("Duration", `\`\`\`5 mins\`\`\``);
             char.park = true;
             char.time = Date.now();
