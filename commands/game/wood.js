@@ -2,9 +2,16 @@ const Discord = require("discord.js");
 const charData = require("../../models/game.js");
 const mongoose = require("mongoose");
 const ratelimit = new Map();
+const ms = require("ms");
 
 module.exports.run = async(bot, message, args) => {
 
+
+    const ratelimit = ratelimitMap.get(message.author.id)
+    if(ratelimit !== null && (Date.now() - ratelimit) > 0 ){
+        let timeObj = ms((Date.now() - ratelimit));
+        return message.channel.send(`You must wait ${timeObj.minutes} minutes, and ${timeObj.seconds} seconds to cut wood again.`);
+    }
     
     charData.findOne({
         userID: message.author.id
@@ -38,10 +45,7 @@ module.exports.run = async(bot, message, args) => {
             return message.channel.send("**Please try again**");
         }
 
-       
-        if(ratelimit.get(message.author.id) < Date.now()) return message.reply("Please wait until you finish!");
         
-        let woodact = true;
         let woodstr = Math.floor(char.strength/5);
         let woodlvl = Math.floor(char.woodlvl/3);
         let woodplus = woodstr + woodlvl;
@@ -91,7 +95,7 @@ module.exports.run = async(bot, message, args) => {
             }, 1000);
         }, 15000);
 
-        ratelimit.set(message.author.id, Date.now() - 16000);
+        ratelimit.set(message.author.id, Date.now() + 16000);
 
     
     });
