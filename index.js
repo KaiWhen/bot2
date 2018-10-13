@@ -45,7 +45,7 @@ load("./commands/game/");
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is running`);
-    console.log(`${message.guild.members.filter(u => u.user.bot === false).size} users`);
+    //console.log(`${message.guild.members.filter(u => u.user.bot === false).size} users`);
     bot.user.setActivity(",help");
   });
 
