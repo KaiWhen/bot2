@@ -8,8 +8,8 @@ module.exports.run = async(bot, message, args) => {
 
 
     const ratelimit = ratelimitMap.get(message.author.id)
-    if(ratelimit !== null && (Date.now() - ratelimit) > 0 ){
-        let timeObj = ms((Date.now() - ratelimit));
+    if(ratelimit !== null && (Date.now() - ratelimit) < 0 ){
+        let timeObj = ms((ratelimit - Date.now()));
         return message.channel.send(`You must wait ${timeObj.minutes} minutes, and ${timeObj.seconds} seconds to cut wood again.`);
     }
     
