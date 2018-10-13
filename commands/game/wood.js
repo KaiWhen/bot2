@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const charData = require("../../models/game.js");
 const mongoose = require("mongoose");
-const ratelimit = new Map();
 const ms = require("ms");
 const ratelimitMap = new Map();
 
@@ -96,7 +95,7 @@ module.exports.run = async(bot, message, args) => {
             }, 1000);
         }, 15000);
 
-        ratelimitMap.set(message.author.id, Date.now() - 16000);
+        ratelimitMap.set(message.author.id, Date.now() + 16000);
 
     
     });
