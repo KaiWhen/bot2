@@ -37,7 +37,8 @@ module.exports.run = async(bot, message, args) => {
                 fishexp: 0,
                 fishlvl: 1,
                 minexp: 0,
-                minelvl: 1
+                minelvl: 1,
+                active: false
             })
             newChar.save()
             .then(result => console.log(result))

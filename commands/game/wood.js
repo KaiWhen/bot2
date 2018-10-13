@@ -37,7 +37,8 @@ module.exports.run = async(bot, message, args) => {
                 fishexp: 0,
                 fishlvl: 1,
                 minexp: 0,
-                minelvl: 1
+                minelvl: 1,
+                active: false
             })
             newChar.save()
             .then(result => console.log(result))
@@ -45,7 +46,7 @@ module.exports.run = async(bot, message, args) => {
             return message.channel.send("**Please try again**");
         }
 
-        
+        if(char.active === false){
         let woodstr = Math.floor(char.strength/5);
         let woodlvl = Math.floor(char.woodlvl/3);
         let woodplus = woodstr + woodlvl;
@@ -95,9 +96,15 @@ module.exports.run = async(bot, message, args) => {
             }, 1000);
         }, 15000);
 
-        ratelimitMap.set(message.author.id, Date.now() + 16000);
-
     
+        char.active = true;
+        char.save()
+        .then(result => console.log(result))
+        .catch(err => console.log(err));
+        ratelimitMap.set(message.author.id, Date.now() + 16000);
+    }else{
+        return message.channel.send("uirshfuihwefuihwef");
+    }
     });
 }
 

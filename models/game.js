@@ -20,7 +20,8 @@ const charData = new Schema({
     fishexp: Number,
     fishlvl: Number,
     minexp: Number,
-    minelvl: Number
+    minelvl: Number,
+    active: Boolean
 });
 
 module.exports = mongoose.model("charData", charData);
