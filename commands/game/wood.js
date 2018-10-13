@@ -10,7 +10,7 @@ module.exports.run = async(bot, message, args) => {
     const ratelimit = ratelimitMap.get(message.author.id)
     if(ratelimit !== null && (Date.now() - ratelimit) < 0 ){
         let timeObj = ms(parseInt((ratelimit - Date.now())));
-        return message.channel.send(`You must wait ${timeObj.minutes} minutes, and ${timeObj.seconds} seconds to cut wood again.`);
+        return message.reply(`You must wait until you are finished!`);
     }
     
     charData.findOne({
@@ -70,7 +70,7 @@ module.exports.run = async(bot, message, args) => {
         .setColor("#855e42");
             
 
-        setTimeout(function(){
+        setTimeout(() => {
             char.wood = char.wood + woodgain;
             char.woodexp = char.woodexp + woodexpgain;
             woodGainEmbed.addField("Wood Gained", `+${woodgain}`, true);
@@ -79,7 +79,7 @@ module.exports.run = async(bot, message, args) => {
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
-            setTimeout(function(){
+            setTimeout(() => {
                 if(char.woodexp >= nextwoodlvl){
                     char.woodlvl = char.woodlvl + 1;
                     let lvlupEmbed = new Discord.RichEmbed()
