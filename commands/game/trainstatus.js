@@ -44,12 +44,12 @@ module.exports.run = async(bot, message, args) => {
         .setThumbnail(message.author.displayAvatarURL);
         
 
-        if(char.active === true) return message.reply("**You are currently doing something else**");
         if(char.park === false) return message.reply("You are not currently training.");
 
-        let timeparkleft = 300000 - Date.now();
-        let timeparkObj = ms(timeparkleft);
-        if(char.park === true && timeparkleft > 0){
+        let timepark = 300000 + char.time;
+        if(char.park === true && Date.now() < timepark){
+            let timeparkleft = timepark - Date.now();
+            let timeparkObj = ms(timeparkleft);
             statEmbed.addField("Location", "Park", true);
             statEmbed.addField("Time Remaining", `${timeparkObj.minutes} minute(s) and ${timeparkObj.seconds} seconds`);
             return message.channel.send(statEmbed);

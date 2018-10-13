@@ -51,7 +51,7 @@ module.exports.run = async(bot, message, args) => {
             trainEmbed.setDescription("You have decided to train in the park!");
             trainEmbed.addField("Duration", `\`\`\`5 mins\`\`\``);
             char.park = true;
-            char.time = Date.now() + 300000;
+            char.time = Date.now();
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
@@ -84,7 +84,7 @@ module.exports.run = async(bot, message, args) => {
 
             }, 300000);
 
-        }else if(!args){
+        }else if(!place){
             message.reply("**Please specify what place you want to go and train.**");
             trainEmbed.addField("Places to train", "`park` not available yet: `beach` `gym` `dojo`");
             return message.channel.send(trainEmbed);
