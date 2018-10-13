@@ -10,7 +10,7 @@ module.exports.run = async(bot, message, args) => {
     const ratelimit = ratelimitMap.get(message.author.id)
     if(ratelimit !== null && (Date.now() - ratelimit) < 0 ){
         let timeObj = ms((ratelimit - Date.now()));
-        return message.reply(`You must wait until you are finished!`);
+        return message.reply(`You must wait ${timeObj.seconds-1} sec(s) until you are finished!`);
     }
 
     charData.findOne({

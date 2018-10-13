@@ -84,7 +84,7 @@ module.exports.run = async(bot, message, args) => {
 
             }, 300000);
 
-        }else if(!place){
+        }else if(!place && char.park === false){
             message.reply("**Please specify what place you want to go and train.**");
             trainEmbed.addField("Places to train", "`park` not available yet: `beach` `gym` `dojo`");
             return message.channel.send(trainEmbed);
