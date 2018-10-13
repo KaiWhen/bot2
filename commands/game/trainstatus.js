@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const charData = require("../../models/game.js");
 const moment = require("moment");
 const mongoose = require("mongoose");
-const ms = require("ms");
+const ms = require("parse-ms");
 
 module.exports.run = async(bot, message, args) => {
     
@@ -51,7 +51,7 @@ module.exports.run = async(bot, message, args) => {
             let timeparkleft = timepark - Date.now();
             let timeparkObj = ms(timeparkleft);
             statEmbed.addField("Location", "Park", true);
-            statEmbed.addField("Time Remaining", `${timeparkObj}in(s)`);
+            statEmbed.addField("Time Remaining", `\`\`\`${timeparkObj.minutes} min(s) ${timeparkObj.seconds}sec(s)\`\`\``);
             return message.channel.send(statEmbed);
         }
 
