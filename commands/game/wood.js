@@ -47,6 +47,7 @@ module.exports.run = async(bot, message, args) => {
         }
 
         if(char.active === false){
+        char.active = true
         let woodstr = Math.floor(char.strength/5);
         let woodlvl = Math.floor(char.woodlvl/3);
         let woodplus = woodstr + woodlvl;
@@ -77,6 +78,7 @@ module.exports.run = async(bot, message, args) => {
             woodGainEmbed.addField("Wood Gained", `+#32CD32\`\`\`${woodgain}\`\`\``, true);
             woodGainEmbed.addField("Tree-cutting EXP Gained", `+#32CD32\`\`\`${woodexpgain}\`\`\``, true);
             message.channel.send(woodGainEmbed);
+            char.active = false;
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
@@ -97,14 +99,11 @@ module.exports.run = async(bot, message, args) => {
         }, 15000);
 
     
-        char.active = true;
-        char.save()
-        .then(result => console.log(result))
-        .catch(err => console.log(err));
         ratelimitMap.set(message.author.id, Date.now() + 16000);
     }else{
         return message.channel.send("uirshfuihwefuihwef");
     }
+    
     });
 }
 
