@@ -9,7 +9,7 @@ const charData = new Schema({
     charlvl: Number,
     strength: Number,
     defence: Number,
-    time: String,
+    time: Schema.Types.Mixed,
     park: Boolean,
     gym: Boolean,
     dojo: Boolean,

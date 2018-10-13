@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const charData = require("../../models/game.js");
 const moment = require("moment");
 const mongoose = require("mongoose");
+const ms = require("ms");
 
 module.exports.run = async(bot, message, args) => {
     
@@ -22,7 +23,15 @@ module.exports.run = async(bot, message, args) => {
                 park: false,
                 gym: false,
                 dojo: false,
-                wood: 0
+                wood: 0,
+                woodexp: 0,
+                woodlvl: 1,
+                fish: 0,
+                fishexp: 0,
+                fishlvl: 1,
+                minexp: 0,
+                minelvl: 1,
+                active: false
             })
             newChar.save()
             .then(result => console.log(result))
@@ -34,47 +43,16 @@ module.exports.run = async(bot, message, args) => {
         .setTitle("Training Status🏋")
         .setThumbnail(message.author.displayAvatarURL);
         
-        let timenow = moment().toISOString();
-        chartime = moment(char.time);
-        let timefrom = parseInt(chartime.from(timenow));
-        //let timefrom = moment.duration(chartime.from(timenow)).asMinutes;
-        console.log(timefrom);
-        let timeleft = 5 - timefrom;
-        //if(!timefrom) timeleft = 5;
-        
-        let nextlvl = Math.ceil(Math.pow(char.charlvl, 2.5));
-        console.log(nextlvl);
 
-        if(char.park === false) return message.reply("**You are currently not training**");
+        if(char.active === true) return message.reply("**You are currently doing something else**");
+        if(char.park === false) return message.reply("You are not currently training.");
 
-        if(char.park === true && timeleft <= 0){
-            let xprnd = Math.ceil(Math.random()*2)+4;
-            char.charxp = char.charxp + xprnd;
-            statEmbed.addField("You have completed your training session!", `+${xprnd} EXP`);
-            char.park = false;
-            message.channel.send(statEmbed);
-
-            if(char.charxp >= nextlvl){
-                char.charlvl = char.charlvl + 1;
-                let lvlupEmbed = new Discord.RichEmbed()
-                .setTitle("**Your character leveled up!**")
-                .setThumbnail("../../images/greenarrow.png")
-                .setColor("#32CD32")
-                .setDescription(`${message.author.username}, you are now level ${char.lvl-1}!`);
-                message.channel.send(lvlupEmbed);
-            }
-
-            char.save()
-            .then(result => console.log(result))
-            .catch(err => console.log(err));
-            return;
-        }
-            
-        else if(char.park === true && timeleft > 0){
+        let timeparkleft = 300000 - Date.now();
+        let timeparkObj = ms(timeparkleft);
+        if(char.park === true && timeparkleft > 0){
             statEmbed.addField("Location", "Park", true);
-            statEmbed.addField("Time Remaining", `${timeleft} minute(s)`);
+            statEmbed.addField("Time Remaining", `${timeparkObj.minutes} minute(s) and ${timeparkObj.seconds} seconds`);
             return message.channel.send(statEmbed);
-
         }
 
        
