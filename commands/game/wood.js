@@ -47,7 +47,7 @@ module.exports.run = async(bot, message, args) => {
         }
 
         if(char.active === false){
-        char.active = true
+        char.active = true;
         char.save()
         .then(result => console.log(result))
         .catch(err => console.log(err));
@@ -78,8 +78,8 @@ module.exports.run = async(bot, message, args) => {
         setTimeout(() => {
             char.wood = char.wood + woodgain;
             char.woodexp = char.woodexp + woodexpgain;
-            woodGainEmbed.addField("Wood Gained", `+#32CD32\`\`\`${woodgain}\`\`\``, true);
-            woodGainEmbed.addField("Tree-cutting EXP Gained", `+#32CD32\`\`\`${woodexpgain}\`\`\``, true);
+            woodGainEmbed.addField("Wood Gained", `\`\`\`+${woodgain}\`\`\``, true);
+            woodGainEmbed.addField("Tree-cutting EXP Gained", `\`\`\`+${woodexpgain}\`\`\``, true);
             message.channel.send(woodGainEmbed);
             char.active = false;
             char.save()

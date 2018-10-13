@@ -47,8 +47,11 @@ module.exports.run = async(bot, message, args) => {
         }
 
        
-        //if(ratelimit.get(message.author.id) < Date.now()) return message.reply("Please wait until you finish!");
-        
+        if(char.active === false){
+        char.active = true;
+        char.save()
+        .then(result => console.log(result))
+        .catch(err => console.log(err));
         //let fishstr = Math.floor(char.strength/10);
         let fishlvl = Math.floor(char.fishlvl/10);
         //let fishplus = fishstr + fishlvl;
@@ -76,9 +79,10 @@ module.exports.run = async(bot, message, args) => {
         setTimeout(function(){
             char.fish = char.fish + fishgain;
             char.fishexp = char.fishexp + fishexpgain;
-            fishGainEmbed.addField("Fish Caught", `+\`\`\`${fishgain}\`\`\``, true);
-            fishGainEmbed.addField("Fishing EXP Gained", `+\`\`\`${fishexpgain}\`\`\``, true);
+            fishGainEmbed.addField("Fish Caught", `\`\`\`+${fishgain}\`\`\``, true);
+            fishGainEmbed.addField("Fishing EXP Gained", `\`\`\`+${fishexpgain}\`\`\``, true);
             message.channel.send(fishGainEmbed);
+            char.active = false;
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
@@ -99,7 +103,7 @@ module.exports.run = async(bot, message, args) => {
         }, 20000);
 
         ratelimitMap.set(message.author.id, Date.now() + 21000);
-
+    }else return;
     
     });
 }
