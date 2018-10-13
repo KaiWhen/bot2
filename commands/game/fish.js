@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const charData = require("../../models/game.js");
 const mongoose = require("mongoose");
-const ms = require("ms");
+const ms = require("parse-ms");
 const ratelimitMap = new Map();
 
 module.exports.run = async(bot, message, args) => {
@@ -9,7 +9,7 @@ module.exports.run = async(bot, message, args) => {
     
     const ratelimit = ratelimitMap.get(message.author.id)
     if(ratelimit !== null && (Date.now() - ratelimit) < 0 ){
-        let timeObj = ms(parseInt((ratelimit - Date.now())));
+        let timeObj = ms((ratelimit - Date.now()));
         return message.reply(`You must wait until you are finished!`);
     }
 
