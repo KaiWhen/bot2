@@ -74,7 +74,7 @@ module.exports.run = async(bot, message, args) => {
                     .setTitle("**Your character leveled up!**")
                     //.setThumbnail("../../images/greenarrow.png")
                     .setColor("#32CD32")
-                    .setDescription(`${message.author.username}, you are now level ${char.lvl-1}!`);
+                    .setDescription(`${message.author.username}, you are now level ${char.charlvl-1}!`);
                     message.author.send(lvlupEmbed);
                     char.save()
                     .then(result => console.log(result))
