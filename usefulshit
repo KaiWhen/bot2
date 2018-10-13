@@ -1,2 +1,7 @@
 message.content.includes()
 String.includes(AnotherString)
+
+if(message.channel.id != "id here") return;
+let fetched = message.channel.fetchMessages({limit: 2})[1]
+if((fetched - parseInt(message.content)) != 1) return message.delete()
+//check last msg??? limit 2 would get the msg sent and one b4
