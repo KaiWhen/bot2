@@ -96,7 +96,7 @@ module.exports.run = async(bot, message, args) => {
             }, 1000);
         }, 15000);
 
-        ratelimitMap.set(message.author.id, Date.now() + 16000);
+        ratelimitMap.set(message.author.id, Date.now() - 16000);
 
     
     });
