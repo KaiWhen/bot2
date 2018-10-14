@@ -58,6 +58,7 @@ module.exports.run = async(bot, message, args) => {
                     userID: message.author.id,
                     username: message.author.username,
                     pick: "Stone Pickaxe",
+                    pickspeed: 250,
                     axe: "Stone Axe",
                     weapon: "not equipped",
                     pickdur: 0,
@@ -89,15 +90,21 @@ module.exports.run = async(bot, message, args) => {
         .then(result => console.log(result))
         .catch(err => console.log(err));
         if(inv.pick === "Stone Pickaxe"){
-            let pickspeed = 250;
+            inv.pickspeed = 250;
+            inv.save()
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
         }
         else if(inv.pick === "Copper Pickaxe"){
-            let pickspeed = 500;
+            inv.pickspeed = 500;
+            inv.save()
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
         }
         let minexprnd = Math.floor(Math.random()*4);
         let minexpgain = minexprnd + char.minelvl;
         let nextminelvl = Math.floor(Math.pow(char.minelvl, 2.6));
-        let minespeed = 600250 - pickspeed;
+        let minespeed = 600250 - inv.pickspeed;
 
 
         let mineEmbed = new Discord.RichEmbed()

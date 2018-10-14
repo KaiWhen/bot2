@@ -6,6 +6,7 @@ const invData = new Schema({
     userID: String,
     username: String,
     pick: String,
+    pickspeed: Number,
     axe: String,
     weapon: String,
     pickdur: Number,
