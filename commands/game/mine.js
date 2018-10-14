@@ -124,7 +124,7 @@ module.exports.run = async(bot, message, args) => {
         setTimeout(() => {
             if(inv.pick === "Stone Pickaxe"){
                 let copperrnd = Math.floor(Math.random()*3);
-                copper.ore += copperrnd;
+                inv.copper[ore] += copperrnd;
                 char.minexp += minexpgain;
                 mineGainEmbed.addField("Ores Mined", `Copper: +${copperrnd}`, true);
                 mineGainEmbed.addField("Mining EXP Gained", `+${minexpgain}`, true);
