@@ -124,7 +124,7 @@ module.exports.run = async(bot, message, args) => {
         setTimeout(() => {
             if(inv.pick === "Stone Pickaxe"){
                 let copperrnd = Math.floor(Math.random()*3);
-                inv.copper.ore += copperrnd;
+                copper.ore += copperrnd;
                 char.minexp += minexpgain;
                 mineGainEmbed.addField("Ores Mined", `Copper: +${copperrnd}`, true);
                 mineGainEmbed.addField("Mining EXP Gained", `+${minexpgain}`, true);
@@ -144,7 +144,7 @@ module.exports.run = async(bot, message, args) => {
                     .setTitle("**Your mining skills leveled up!**")
                     //.setThumbnail("../../images/greenarrow.png")
                     .setColor("#32CD32")
-                    .setDescription(`${message.author.username}, you now have a mining skill level of #32CD32${char.minelvl-1}!`);
+                    .setDescription(`${message.author.username}, you now have a mining skill level of ${char.minelvl-1}!`);
                     message.channel.send(lvlupEmbed);
                     char.save()
                     .then(result => console.log(result))
