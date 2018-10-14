@@ -64,7 +64,7 @@ module.exports.run = async(bot, message, args) => {
                     pickdur: 0,
                     axedur: 100,
                     weapondam: 0,
-                    copper: [{ore: 0, bar: 0, weapon: false, pick: false, axe: false}],
+                    copper: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
                     iron: [{ore: 0, bar: 0, weapon: false, pick: false, axe: false}],
                     silver: [{ore: 0, bar: 0, weapon: false, pick: false, axe: false}],
                     nickel: [{ore: 0, bar: 0, weapon: false, pick: false, axe: false}],
@@ -124,7 +124,7 @@ module.exports.run = async(bot, message, args) => {
         setTimeout(() => {
             if(inv.pick === "Stone Pickaxe"){
                 let copperrnd = Math.floor(Math.random()*3);
-                inv.copper[ore] += copperrnd;
+                inv.copper.ore += copperrnd;
                 char.minexp += minexpgain;
                 mineGainEmbed.addField("Ores Mined", `Copper: +${copperrnd}`, true);
                 mineGainEmbed.addField("Mining EXP Gained", `+${minexpgain}`, true);

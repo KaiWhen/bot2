@@ -12,7 +12,7 @@ const invData = new Schema({
     pickdur: Number,
     axedur: Number,
     weapondam: Number,
-    copper: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    copper: {ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
     iron: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
     silver: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
     nickel: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
