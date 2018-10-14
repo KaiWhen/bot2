@@ -5,3 +5,23 @@ if(message.channel.id != "id here") return;
 let fetched = message.channel.fetchMessages({limit: 2})[1]
 if((fetched - parseInt(message.content)) != 1) return message.delete()
 //check last msg??? limit 2 would get the msg sent and one b4
+
+metals:
+
+1 copper
+2 iron
+3 silver
+4 nickel
+5 gold
+6 platinum
+7 ruthenium
+8 titanium
+9 molybdenum
+10 rhenium - from molybdenum and copper
+11 iridium - formed from platinum
+12 osmium - nickel and copper
+13 diamond
+
+axes:
+stone axe - 2
+iron axe - 4
