@@ -39,7 +39,7 @@ module.exports.run = async(bot, message, args) => {
 
         let userIcon = message.author.displayAvatarURL;
         const skillEmbed = new Discord.RichEmbed()
-        .setTitle(`${message.author.username} - Skills`)
+        .setAuthor(`${message.author.username} - Skills`)
         .addField("Tree-cutting", `Level: ${char.woodlvl}\nEXP: ${char.woodexp}`, true)
         .addField("Fishing", `Level: ${char.fishlvl}\nEXP: ${char.fishexp}`, true)
         .addField("Mining", `Level: ${char.minelvl}\nEXP: ${char.minexp}`, true);

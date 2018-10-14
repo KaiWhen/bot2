@@ -40,7 +40,7 @@ module.exports.run = async(bot, message, args) => {
 
         let userIcon = message.author.displayAvatarURL;
         let invEmbed = new Discord.RichEmbed()
-        .setTitle(`${message.author.username}'s inventory`, userIcon)
+        .setAuthor(`${message.author.username}'s inventory`, userIcon)
         .addField("Wood", `\`\`\`${char.wood}\`\`\``, true)
         .addField("Fish", `\`\`\`${char.fish}\`\`\``, true);
         
