@@ -5,29 +5,25 @@ const invData = new Schema({
     _id: mongoose.Schema.Types.ObjectId,
     userID: String,
     username: String,
-    minelvl: Number,
-    minexp: Number,
     pick: String,
     axe: String,
-    weapon: [{
-        copper: String, damage: Number
-    }],
+    weapon: String,
     pickdur: Number,
     axedur: Number,
     weapondam: Number,
-    copper: Number,
-    iron: Number,
-    silver: Number,
-    nickel: Number,
-    gold: Number,
-    platinum: Number,
-    ruthenium: Number,
-    titanium: Number,
-    molybdenum: Number,
-    rhenium: Number,
-    iridium: Number, 
-    osmium: Number, 
-    diamond: Number
+    copper: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    iron: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    silver: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    nickel: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    gold: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    platinum: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    ruthenium: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    titanium: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    molybdenum: [{ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    rhenium: [{bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    iridium: [{bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    osmium: [{bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}],
+    diamond: [{bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}]
 });
 
 module.exports = mongoose.model("invData", invData);
