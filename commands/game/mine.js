@@ -128,13 +128,13 @@ module.exports.run = async(bot, message, args) => {
                 char.minexp += minexpgain;
                 mineGainEmbed.addField("Ores Mined", `Copper: +${copperrnd}`, true);
                 mineGainEmbed.addField("Mining EXP Gained", `+${minexpgain}`, true);
+                inv.save()
+                .then(result => console.log(result))
+                .catch(err => console.log(err));
             }
             message.channel.send(mineGainEmbed);
             char.active = false;
             char.save()
-            .then(result => console.log(result))
-            .catch(err => console.log(err));
-            inv.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
             setTimeout(() => {
