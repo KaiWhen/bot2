@@ -151,10 +151,10 @@ module.exports.run = async(bot, message, args) => {
                     .catch(err => console.log(err));
                 }
             }, 1000);
-        }, minespeed);
+        }, 5000);
 
     
-        ratelimitMap.set(message.author.id, Date.now() + minespeed);
+        ratelimitMap.set(message.author.id, Date.now() + 5000);
     }else{
         return message.reply("You are already doing something.");
     }
