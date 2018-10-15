@@ -140,7 +140,7 @@ module.exports.run = async(bot, message, args) => {
         setTimeout(() => {
             if(ore === "copper"){
                 let xprnd = Math.floor(Math.random()*5);
-                inv.copper.bar += amnt;
+                inv.copper.bar += parseInt(amnt);
                 char.charxp += xprnd;
                 smeltGainEmbed.addField("Ores Smelted", `${amnt} Copper Ore`, true);
                 smeltGainEmbed.addField("Bars Obtained", `+${amnt} Copper Bars`, true);
@@ -153,7 +153,7 @@ module.exports.run = async(bot, message, args) => {
             }
             else if(ore === "iron"){
                 let xprnd = Math.floor(Math.random()*7);
-                inv.iron.bar += amnt;
+                inv.iron.bar += parseInt(amnt);
                 char.charxp += xprnd;
                 smeltGainEmbed.addField("Ores Smelted", `${amnt} Iron Ore`, true);
                 smeltGainEmbed.addField("Bars Obtained", `+${amnt} Iron Bars`, true);
