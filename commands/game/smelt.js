@@ -50,7 +50,7 @@ module.exports.run = async(bot, message, args) => {
             newChar.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
-            return message.channel.send("**Please try again**");
+            return message.channel.send("**Please try again.**");
         }
 
 
@@ -90,8 +90,8 @@ module.exports.run = async(bot, message, args) => {
                 return message.channel.send("**Please try again**");
             }
 
-            if(!ore) return message.reply("Please enter a valid ore name");
-            if(isNaN(amnt)) return message.reply("Please enter a number for the amount");
+            if(!ore) return message.reply("Please enter a valid ore name, e.g. copperore");
+            if(isNaN(amnt)) return message.reply("Please enter a number for the amount.");
 
         if(char.smelt === false){
         char.smelt = true;
@@ -99,7 +99,7 @@ module.exports.run = async(bot, message, args) => {
         char.save()
         .then(result => console.log(result))
         .catch(err => console.log(err));
-        if(ore === "copper"){
+        if(ore === "copperore"){
             if((inv.copper.ore - amnt) < 0) return message.reply("You don't have enough copper ore.");
             char.smelttime = 5000;
             inv.copper.ore -= amnt;
@@ -109,7 +109,7 @@ module.exports.run = async(bot, message, args) => {
             .then(result => console.log(result))
             .catch(err => console.log(err));
         }
-        else if(ore === "iron"){
+        else if(ore === "ironore"){
             if((inv.iron.ore - amnt) < 0) return message.reply("You don't have enough iron ore.");
             char.smelttime = 10000;
             inv.iron.ore -= amnt;
@@ -138,8 +138,8 @@ module.exports.run = async(bot, message, args) => {
             
 
         setTimeout(() => {
-            if(ore === "copper"){
-                let xprnd = Math.floor(Math.random()*5);
+            if(ore === "copperore"){
+                let xprnd = Math.floor(Math.random()*1)+4;
                 inv.copper.bar += parseInt(amnt);
                 char.charxp += xprnd;
                 smeltGainEmbed.addField("Ores Smelted", `${amnt} Copper Ore`, true);
@@ -151,8 +151,8 @@ module.exports.run = async(bot, message, args) => {
                 char.save()
                 .catch(err => console.log(err));
             }
-            else if(ore === "iron"){
-                let xprnd = Math.floor(Math.random()*7);
+            else if(ore === "ironore"){
+                let xprnd = Math.floor(Math.random()*2)+5;
                 inv.iron.bar += parseInt(amnt);
                 char.charxp += xprnd;
                 smeltGainEmbed.addField("Ores Smelted", `${amnt} Iron Ore`, true);
