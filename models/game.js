@@ -21,7 +21,10 @@ const charData = new Schema({
     fishlvl: Number,
     minexp: Number,
     minelvl: Number,
-    active: Boolean
+    active: Boolean,
+    smelt: Boolean,
+    smelttime: Number,
+    smeltstamp: Schema.Types.Mixed
 });
 
 module.exports = mongoose.model("charData", charData);
