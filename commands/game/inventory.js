@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const charData = require("../../models/game.js");
 const mongoose = require("mongoose");
+const invData = require("../../models/invData.js");
 
 module.exports.run = async(bot, message, args) => {
     
