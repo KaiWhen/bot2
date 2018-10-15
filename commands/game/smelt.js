@@ -90,7 +90,8 @@ module.exports.run = async(bot, message, args) => {
                 return message.channel.send("**Please try again**");
             }
 
-            if(!ore) return message.reply("Please enter a valid ore name, e.g. copperore");
+            let ores = ["copper", "iron"];
+            if(ore != ores) return message.reply("Please enter a valid ore name, e.g. copper");
             if(isNaN(amnt)) return message.reply("Please enter a number for the amount.");
 
         if(char.smelt === false){
@@ -99,7 +100,7 @@ module.exports.run = async(bot, message, args) => {
         char.save()
         .then(result => console.log(result))
         .catch(err => console.log(err));
-        if(ore === "copperore"){
+        if(ore === "copper"){
             if((inv.copper.ore - amnt) < 0) return message.reply("You don't have enough copper ore.");
             char.smelttime = 5000;
             inv.copper.ore -= amnt;
@@ -109,7 +110,7 @@ module.exports.run = async(bot, message, args) => {
             .then(result => console.log(result))
             .catch(err => console.log(err));
         }
-        else if(ore === "ironore"){
+        else if(ore === "iron"){
             if((inv.iron.ore - amnt) < 0) return message.reply("You don't have enough iron ore.");
             char.smelttime = 10000;
             inv.iron.ore -= amnt;
@@ -138,7 +139,7 @@ module.exports.run = async(bot, message, args) => {
             
 
         setTimeout(() => {
-            if(ore === "copperore"){
+            if(ore === "copper"){
                 let xprnd = Math.floor(Math.random()*1)+4;
                 inv.copper.bar += parseInt(amnt);
                 char.charxp += xprnd;
@@ -151,7 +152,7 @@ module.exports.run = async(bot, message, args) => {
                 char.save()
                 .catch(err => console.log(err));
             }
-            else if(ore === "ironore"){
+            else if(ore === "iron"){
                 let xprnd = Math.floor(Math.random()*2)+5;
                 inv.iron.bar += parseInt(amnt);
                 char.charxp += xprnd;
