@@ -84,12 +84,12 @@ module.exports.run = async(bot, message, args) => {
         // .addField("Wood", `\`\`\`${char.wood}\`\`\``, true)
         // .addField("Fish", `\`\`\`${char.fish}\`\`\``, true);
 
-        if(char.wood > 0) resources.push(`Wood: ${char.wood}`);
+        if(char.wood > 0) resources.push(`Wood: ${char.wood}\n`);
         if(char.fish > 0) resources.push(`Fish: ${char.fish}`);
         if(inv.copper.ore > 0) ores.push(`Copper Ore: ${inv.copper.ore}         `);
         if(inv.iron.ore > 0) ores.push(`Iron Ore: ${inv.iron.ore}`);
         
-        invEmbed.addField("Resources", `${resources.join("          ")}`);
+        invEmbed.addField("Resources", `${resources.join("")}`);
         invEmbed.addField("Ores", `${ores}`);
         message.channel.send(invEmbed);
 
