@@ -86,11 +86,11 @@ module.exports.run = async(bot, message, args) => {
 
         if(char.wood > 0) resources.push(`Wood: ${char.wood}\n`);
         if(char.fish > 0) resources.push(`Fish: ${char.fish}`);
-        if(inv.copper.ore > 0) ores.push(`Copper Ore: ${inv.copper.ore}         `);
+        if(inv.copper.ore > 0) ores.push(`Copper Ore: ${inv.copper.ore}`);
         if(inv.iron.ore > 0) ores.push(`Iron Ore: ${inv.iron.ore}`);
         
         invEmbed.addField("Resources", `${resources.join("")}`);
-        invEmbed.addField("Ores", `${ores}`);
+        invEmbed.addField("Ores", `${ores.join("\n")}`);
         message.channel.send(invEmbed);
 
     });
