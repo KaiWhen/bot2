@@ -75,7 +75,7 @@ module.exports.run = async(bot, message, args) => {
                 return message.channel.send("**Please try again**");
             }
 
-        let ores = [];
+        let ores = [].join("            ");
         let resources = [];
         let spacing = ""
         let userIcon = message.author.displayAvatarURL;
@@ -84,8 +84,8 @@ module.exports.run = async(bot, message, args) => {
         // .addField("Wood", `\`\`\`${char.wood}\`\`\``, true)
         // .addField("Fish", `\`\`\`${char.fish}\`\`\``, true);
 
-        if(char.wood > 0) resources.push(`Wood: ${char.wood}\n`);
-        if(char.fish > 0) resources.push(`Fish: ${char.fish}\n`);
+        if(char.wood > 0) resources.push(`Wood: ${char.wood}`);
+        if(char.fish > 0) resources.push(`Fish: ${char.fish}`);
         if(inv.copper.ore > 0) ores.push(`Copper Ore: ${inv.copper.ore}         `);
         if(inv.iron.ore > 0) ores.push(`Iron Ore: ${inv.iron.ore}`);
         
