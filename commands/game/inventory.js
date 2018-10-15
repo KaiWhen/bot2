@@ -77,10 +77,9 @@ module.exports.run = async(bot, message, args) => {
 
         let ores = [];
         let resources = [];
-        let spacing = ""
         let userIcon = message.author.displayAvatarURL;
         let invEmbed = new Discord.RichEmbed()
-        .setAuthor(`${message.author.username}'s inventory`, userIcon)
+        .setAuthor(`${message.author.username}'s inventory`, userIcon);
         // .addField("Wood", `\`\`\`${char.wood}\`\`\``, true)
         // .addField("Fish", `\`\`\`${char.fish}\`\`\``, true);
 
