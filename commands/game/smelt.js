@@ -125,8 +125,8 @@ module.exports.run = async(bot, message, args) => {
 
         let smeltEmbed = new Discord.RichEmbed()
         .setTitle("Furnace")
-        .setColor("#855e42")
-        .setDescription(`Smelting ${ore} ore.`)
+        .setColor("#C0C0C0")
+        .setDescription(`Smelting ${ore} ore!`)
         .addField("Amount", `${amnt}`);
         message.channel.send(smeltEmbed);
         
@@ -134,7 +134,7 @@ module.exports.run = async(bot, message, args) => {
         let smeltGainEmbed = new Discord.RichEmbed()
         .setAuthor("Furnace")
         .setTitle("**You are finished smelting!**")
-        .setColor("#855e42");
+        .setColor("#C0C0C0");
             
 
         setTimeout(() => {

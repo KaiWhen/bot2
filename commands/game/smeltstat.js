@@ -44,6 +44,7 @@ module.exports.run = async(bot, message, args) => {
 
         let smeltEmbed = new Discord.RichEmbed()
         .setTitle("Smelting with Furnace")
+        .setColor("#C0C0C0")
         .setThumbnail(message.author.displayAvatarURL);
         
 
