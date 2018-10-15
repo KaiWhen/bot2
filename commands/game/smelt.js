@@ -90,8 +90,7 @@ module.exports.run = async(bot, message, args) => {
                 return message.channel.send("**Please try again**");
             }
 
-            let ores = ["copper", "iron"];
-            if(ore != "copper" || ore != "iron") return message.reply("Please enter a valid ore name, e.g. copper");
+            if(!ore) return message.reply("Please enter a valid ore name, e.g. copper");
             if(isNaN(amnt)) return message.reply("Please enter a number for the amount.");
 
         if(char.smelt === false){
@@ -102,7 +101,7 @@ module.exports.run = async(bot, message, args) => {
         .catch(err => console.log(err));
         if(ore === "copper"){
             if((inv.copper.ore - amnt) < 0) return message.reply("You don't have enough copper ore.");
-            char.smelttime = 5000;
+            char.smelttime = 120000;
             inv.copper.ore -= amnt;
             inv.save()
             .catch(err => console.log(err));
@@ -112,7 +111,7 @@ module.exports.run = async(bot, message, args) => {
         }
         else if(ore === "iron"){
             if((inv.iron.ore - amnt) < 0) return message.reply("You don't have enough iron ore.");
-            char.smelttime = 10000;
+            char.smelttime = 180000;
             inv.iron.ore -= amnt;
             inv.save()
             .catch(err => console.log(err));
