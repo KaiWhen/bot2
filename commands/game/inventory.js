@@ -75,15 +75,17 @@ module.exports.run = async(bot, message, args) => {
                 return message.channel.send("**Please try again**");
             }
 
+        let ores = [];
         let userIcon = message.author.displayAvatarURL;
         let invEmbed = new Discord.RichEmbed()
         .setAuthor(`${message.author.username}'s inventory`, userIcon)
         .addField("Wood", `\`\`\`${char.wood}\`\`\``, true)
         .addField("Fish", `\`\`\`${char.fish}\`\`\``, true);
 
-        if(inv.copper.ore > 0) invEmbed.addField("Copper Ore", `${inv.copper.ore}`);
+        if(inv.copper.ore > 0) ores.push(`Copper Ore: ${inv.copper.ore}         `);
         if(inv.iron.ore > 0) invEmbed.addField("Iron Ore", `${inv.copper.ore}`);
         
+        invEmbed.addField("Ores", `${ores}`);
         message.channel.send(invEmbed);
 
     });
