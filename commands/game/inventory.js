@@ -76,15 +76,20 @@ module.exports.run = async(bot, message, args) => {
             }
 
         let ores = [];
+        let resources = [];
+        let spacing = ""
         let userIcon = message.author.displayAvatarURL;
         let invEmbed = new Discord.RichEmbed()
         .setAuthor(`${message.author.username}'s inventory`, userIcon)
-        .addField("Wood", `\`\`\`${char.wood}\`\`\``, true)
-        .addField("Fish", `\`\`\`${char.fish}\`\`\``, true);
+        // .addField("Wood", `\`\`\`${char.wood}\`\`\``, true)
+        // .addField("Fish", `\`\`\`${char.fish}\`\`\``, true);
 
+        if(char.wood > 0) resources.push(`Wood: ${char.wood}\n`);
+        if(char.fish > 0) resources.push(`Fish: ${char.fish}\n`);
         if(inv.copper.ore > 0) ores.push(`Copper Ore: ${inv.copper.ore}         `);
-        if(inv.iron.ore > 0) invEmbed.addField("Iron Ore", `${inv.copper.ore}`);
+        if(inv.iron.ore > 0) ores.push(`Iron Ore: ${inv.iron.ore}`);
         
+        invEmbed.addField("Resources", `${resources}`);
         invEmbed.addField("Ores", `${ores}`);
         message.channel.send(invEmbed);
 
