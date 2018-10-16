@@ -12,8 +12,8 @@ const invData = new Schema({
     pickdur: Number,
     axedur: Number,
     weapondam: Number,
-    ore: [],
-    bar: []
+    ore: Array,
+    bar: Array
 });
 
 module.exports = mongoose.model("invData", invData);
