@@ -12,19 +12,8 @@ const invData = new Schema({
     pickdur: Number,
     axedur: Number,
     weapondam: Number,
-    copper: {ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    iron: {ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    silver: {ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    nickel: {ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    gold: {ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    platinum: {ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    ruthenium: {ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    titanium: {ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    molybdenum: {ore: Number, bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    rhenium: {bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    iridium: {bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    osmium: {bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean},
-    diamond: {bar: Number, weapon: Boolean, pick: Boolean, axe: Boolean}
+    ore: [],
+    bar: []
 });
 
 module.exports = mongoose.model("invData", invData);
