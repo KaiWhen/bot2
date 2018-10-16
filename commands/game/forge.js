@@ -30,7 +30,10 @@ module.exports.run = async(bot, message, args) => {
                 fishlvl: 1,
                 minexp: 0,
                 minelvl: 1,
-                active: false
+                active: false,
+                smelt: false,
+                smelttime: 0,
+                smeltstamp: 0
             })
             newChar.save()
             .then(result => console.log(result))
