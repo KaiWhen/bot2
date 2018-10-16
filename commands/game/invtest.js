@@ -33,12 +33,6 @@ module.exports.run = async(bot, message, args) => {
         let amountkey = {"amount": 0}
         let copper = items.ore[0];
         inv.ore.push(items.ore[0]);
-        inv.ore.map(function(el) {
-            let o = Object.assign({}, el);
-            o.amount = 0;
-          });
-        invData.findOneAndUpdate({userID: message.author.id}, {$push: {ore: copper}});
-        invData.findOneAndUpdate({userID: message.author.id}, {$push: {ore: amountkey}});
         inv.save()
         .then(result => console.log(result))
         .catch(err => console.log(err));
