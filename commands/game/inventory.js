@@ -94,9 +94,9 @@ module.exports.run = async(bot, message, args) => {
         if(inv.iron.bar > 0) bars.push(`Iron Bar: ${inv.iron.bar}`);
 
         
-        invEmbed.addField("Resources", `${resources.join("")}`);
-        invEmbed.addField("Ores", `${ores.join("\n")}`);
-        invEmbed.addField("Bars", `${bars.join("\n")}`);
+        if(char.wood || char.fish) invEmbed.addField("Resources", `${resources.join("")}`);
+        if(inv.copper.ore || inv.iron.ore) invEmbed.addField("Ores", `${ores.join("\n")}`);
+        if(inv.copper.bar || inv.iron.bar) invEmbed.addField("Bars", `${bars.join("\n")}`);
         message.channel.send(invEmbed);
 
     });
