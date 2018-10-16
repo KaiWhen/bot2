@@ -76,15 +76,13 @@ module.exports.run = async(bot, message, args) => {
             
             let material = args[0];
             let tool = args[1];
-            let amount = args[2];
             let icon = message.author.displayAvatarURL;
             let forgeEmbed = new Discord.RichEmbed()
             .setAuthor(`Tool Forge`, `${icon}`);
 
-            if(!material || !tool || !amount) return message.reply("``,forge <material> <tool> <amount>``");
-            if(isNaN(amount) || amount > 1) return message.reply("You can only forge 1 tool at a time.");
+            if(!material || !tool) return message.reply("``,forge <material> <tool>``");
         
-            if(material === "copper" && tool === "pickaxe" && amount === 1){
+            if(material === "copper" && tool === "pickaxe"){
                 if(inv.copper.bar < 6) return message.reply("Not enough Copper Bars!");
                 if(inv.copper.pick === 1) return message.reply("I don't think you need 2 of those...");
                 inv.copper.bar -= 6;
@@ -95,7 +93,7 @@ module.exports.run = async(bot, message, args) => {
                 .catch(err => console.log(err));
                 return message.channel.send(forgeEmbed);
             }
-            else if(material === "copper" && tool === "axe" && amount === 1){
+            else if(material === "copper" && tool === "axe"){
                 if(inv.copper.bar < 7) return message.reply("Not enough Copper Bars!");
                 if(inv.copper.axe === 1) return message.reply("I don't think you need 2 of those...");
                 inv.copper.bar -= 7;
@@ -106,7 +104,7 @@ module.exports.run = async(bot, message, args) => {
                 .catch(err => console.log(err));
                 return message.channel.send(forgeEmbed);
             }
-            else if(material === "copper" && tool === "sword" && amount === 1){
+            else if(material === "copper" && tool === "sword"){
                 if(inv.copper.bar < 8) return message.reply("Not enough Copper Bars!");
                 if(inv.copper.pick === 1) return message.reply("I don't think you need 2 of those...");
                 inv.copper.bar -= 8;
@@ -117,7 +115,7 @@ module.exports.run = async(bot, message, args) => {
                 .catch(err => console.log(err));
                 return message.channel.send(forgeEmbed);
             }
-            else if(material === "iron" && tool === "pickaxe" && amount === 1){
+            else if(material === "iron" && tool === "pickaxe"){
                 if(inv.iron.bar < 6) return message.reply("Not enough Iron Bars!");
                 if(inv.iron.pick === 1) return message.reply("I don't think you need 2 of those...");
                 inv.iron.bar -= 6;
@@ -128,7 +126,7 @@ module.exports.run = async(bot, message, args) => {
                 .catch(err => console.log(err));
                 return message.channel.send(forgeEmbed);
             }
-            else if(material === "iron" && tool === "axe" && amount === 1){
+            else if(material === "iron" && tool === "axe"){
                 if(inv.iron.bar < 7) return message.reply("Not enough Iron Bars!");
                 if(inv.iron.axe === 1) return message.reply("I don't think you need 2 of those...");
                 inv.iron.bar -= 7;
@@ -139,7 +137,7 @@ module.exports.run = async(bot, message, args) => {
                 .catch(err => console.log(err));
                 return message.channel.send(forgeEmbed);
             }
-            else if(material === "iron" && tool === "sword" && amount === 1){
+            else if(material === "iron" && tool === "sword"){
                 if(inv.iron.bar < 8) return message.reply("Not enough Iron Bars!");
                 if(inv.iron.pick === 1) return message.reply("I don't think you need 2 of those...");
                 inv.iron.bar -= 8;
