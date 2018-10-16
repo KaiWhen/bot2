@@ -96,6 +96,7 @@ module.exports.run = async(bot, message, args) => {
         
         invEmbed.addField("Resources", `${resources.join("")}`);
         invEmbed.addField("Ores", `${ores.join("\n")}`);
+        invEmbed.addField("Bars", `${bars.join("\n")}`);
         message.channel.send(invEmbed);
 
     });
