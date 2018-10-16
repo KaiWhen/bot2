@@ -102,8 +102,8 @@ module.exports.run = async(bot, message, args) => {
         .catch(err => console.log(err));
         if(ore === "copper"){
             if((inv.copper.ore - amnt) < 0) return message.reply("You don't have enough copper ore.");
-            char.smelttime = 120000;
-            inv.copper.ore -= amnt;
+            char.smelttime = 60000*parseInt(amnt);
+            inv.copper.ore -= parseInt(amnt);
             inv.save()
             .catch(err => console.log(err));
             char.save()
@@ -112,8 +112,8 @@ module.exports.run = async(bot, message, args) => {
         }
         else if(ore === "iron"){
             if((inv.iron.ore - amnt) < 0) return message.reply("You don't have enough iron ore.");
-            char.smelttime = 180000;
-            inv.iron.ore -= amnt;
+            char.smelttime = 90000*parseInt(amnt);
+            inv.iron.ore -= parseInt(amnt);
             inv.save()
             .catch(err => console.log(err));
             char.save()
