@@ -167,6 +167,7 @@ module.exports.run = async(bot, message, args) => {
             }
             message.channel.send(smeltGainEmbed);
             char.smelt = false;
+            char.smelttime = 0;
             char.save()
             .then(result => console.log(result))
             .catch(err => console.log(err));
