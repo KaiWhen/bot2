@@ -64,19 +64,19 @@ module.exports.run = async(bot, message, args) => {
                     pickdur: 0,
                     axedur: 100,
                     weapondam: 0,
-                    copper: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    iron: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    silver: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    nickel: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    gold: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    platinum: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    ruthenium: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    titanium: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    molybdenum: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    rhenium: {bar: 0, weapon: false, pick: false, axe: false},
-                    iridium: {bar: 0, weapon: false, pick: false, axe: false},
-                    osmium: {bar: 0, weapon: false, pick: false, axe: false},
-                    diamond: {bar: 0, weapon: false, pick: false, axe: false}
+                    copper: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    iron: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    silver: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    nickel: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    gold: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    platinum: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    ruthenium: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    titanium: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    molybdenum: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    rhenium: {bar: 0, weapon: 0, pick: 0, axe: 0},
+                    iridium: {bar: 0, weapon: 0, pick: 0, axe: 0},
+                    osmium: {bar: 0, weapon: 0, pick: 0, axe: 0},
+                    diamond: {bar: 0, weapon: 0, pick: 0, axe: 0}
                 })
                 newInv.save()
                 .then(result => console.log(result))

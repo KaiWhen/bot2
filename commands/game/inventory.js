@@ -55,19 +55,19 @@ module.exports.run = async(bot, message, args) => {
                     pickdur: 0,
                     axedur: 100,
                     weapondam: 0,
-                    copper: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    iron: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    silver: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    nickel: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    gold: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    platinum: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    ruthenium: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    titanium: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    molybdenum: {ore: 0, bar: 0, weapon: false, pick: false, axe: false},
-                    rhenium: {bar: 0, weapon: false, pick: false, axe: false},
-                    iridium: {bar: 0, weapon: false, pick: false, axe: false},
-                    osmium: {bar: 0, weapon: false, pick: false, axe: false},
-                    diamond: {bar: 0, weapon: false, pick: false, axe: false}
+                    copper: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    iron: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    silver: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    nickel: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    gold: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    platinum: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    ruthenium: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    titanium: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    molybdenum: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    rhenium: {bar: 0, weapon: 0, pick: 0, axe: 0},
+                    iridium: {bar: 0, weapon: 0, pick: 0, axe: 0},
+                    osmium: {bar: 0, weapon: 0, pick: 0, axe: 0},
+                    diamond: {bar: 0, weapon: 0, pick: 0, axe: 0}
                 })
                 newInv.save()
                 .then(result => console.log(result))
@@ -77,6 +77,7 @@ module.exports.run = async(bot, message, args) => {
 
         let ores = [];
         let resources = [];
+        let bars = [];
         let userIcon = message.author.displayAvatarURL;
         let invEmbed = new Discord.RichEmbed()
         .setAuthor(`${message.author.username}'s inventory`, userIcon);
@@ -85,8 +86,13 @@ module.exports.run = async(bot, message, args) => {
 
         if(char.wood > 0) resources.push(`Wood: ${char.wood}\n`);
         if(char.fish > 0) resources.push(`Fish: ${char.fish}`);
+
         if(inv.copper.ore > 0) ores.push(`Copper Ore: ${inv.copper.ore}`);
         if(inv.iron.ore > 0) ores.push(`Iron Ore: ${inv.iron.ore}`);
+
+        if(inv.copper.bar > 0) bars.push(`Copper Bar: ${inv.copper.bar}`);
+        if(inv.iron.bar > 0) bars.push(`Iron Bar: ${inv.iron.bar}`);
+
         
         invEmbed.addField("Resources", `${resources.join("")}`);
         invEmbed.addField("Ores", `${ores.join("\n")}`);

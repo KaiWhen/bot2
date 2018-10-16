@@ -12,8 +12,19 @@ const invData = new Schema({
     pickdur: Number,
     axedur: Number,
     weapondam: Number,
-    ore: Array,
-    bar: Array
+    copper: {ore: Number, bar: Number, weapon: Number, pick: Number, axe: Number},
+    iron: {ore: Number, bar: Number, weapon: Number, pick: Number, axe: Number},
+    silver: {ore: Number, bar: Number, weapon: Number, pick: Number, axe: Number},
+    nickel: {ore: Number, bar: Number, weapon: Number, pick: Number, axe: Number},
+    gold: {ore: Number, bar: Number, weapon: Number, pick: Number, axe: Number},
+    platinum: {ore: Number, bar: Number, weapon: Number, pick: Number, axe: Number},
+    ruthenium: {ore: Number, bar: Number, weapon: Number, pick: Number, axe: Number},
+    titanium: {ore: Number, bar: Number, weapon: Number, pick: Number, axe: Number},
+    molybdenum: {ore: Number, bar: Number, weapon: Number, pick: Number, axe: Number},
+    rhenium: {bar: Number, weapon: Number, pick: Number, axe: Number},
+    iridium: {bar: Number, weapon: Number, pick: Number, axe: Number},
+    osmium: {bar: Number, weapon: Number, pick: Number, axe: Number},
+    diamond: {bar: Number, weapon: Number, pick: Number, axe: Number}
 });
 
 module.exports = mongoose.model("invData", invData);
