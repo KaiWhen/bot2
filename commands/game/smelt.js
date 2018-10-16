@@ -92,6 +92,7 @@ module.exports.run = async(bot, message, args) => {
 
             if(!ore) return message.reply("Please enter a valid ore name, e.g. copper");
             if(isNaN(amnt)) return message.reply("Please enter a number for the amount.");
+            if(!ore.includes("iron") || !ore.includes("copper"))return message.reply("Please enter a valid ore name, e.g. copper");
 
         if(char.smelt === false){
         char.smelt = true;
