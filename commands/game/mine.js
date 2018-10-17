@@ -200,6 +200,7 @@ module.exports.run = async (bot, message, args) => {
                     .setTitle("Mining")
                     .setColor("#855e42")
                     .setDescription("You are off to the mines for a while!")
+                    .setThumbnail(`${message.author.displayAvatarURL}`)
                     .addField("Pickaxe", `${inv.pick.toUpperCase()}`);
                 message.channel.send(mineEmbed);
 
