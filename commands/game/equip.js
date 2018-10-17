@@ -44,18 +44,21 @@ module.exports.run = async(bot, message, args) => {
             let tool = args[1];
 
             if(material === "copper" && tool === "pickaxe"){
+                if(!inv.copper.pick) return message.reply("You do not own a Copper Pickaxe.");
                 inv.pick = "Copper Pickaxe";
                 inv.save()
                 .catch(err => console.log(err));
                 return message.channel.send(`**Equipped the Copper Pickaxe.**`);
             }
             else if(material === "copper" && tool === "axe"){
+                if(!inv.copper.axe) return message.reply("You do not own a Copper Axe.");
                 inv.axe = "Copper Axe";
                 inv.save()
                 .catch(err => console.log(err));
                 return message.channel.send(`**Equipped the Copper Axe.**`);
             }
             else if(material === "copper" && tool === "sword"){
+                if(!inv.copper.weapon) return message.reply("You do not own a Copper Sword.");
                 inv.weapon = "Copper Sword";
                 inv.save()
                 .catch(err => console.log(err));
