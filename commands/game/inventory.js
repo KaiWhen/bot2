@@ -89,14 +89,19 @@ module.exports.run = async(bot, message, args) => {
 
         if(inv.copper.ore > 0) ores.push(`Copper Ore: ${inv.copper.ore}`);
         if(inv.iron.ore > 0) ores.push(`Iron Ore: ${inv.iron.ore}`);
+        if(inv.silver.ore > 0) ores.push(`Silver Ore: ${inv.silver.ore}`);
+        if(inv.nickel.ore > 0) ores.push(`Nickel Ore: ${inv.nickel.ore}`);
 
         if(inv.copper.bar > 0) bars.push(`Copper Bar: ${inv.copper.bar}`);
         if(inv.iron.bar > 0) bars.push(`Iron Bar: ${inv.iron.bar}`);
-
+        if(inv.silver.bar > 0) bars.push(`Silver Bar: ${inv.silver.bar}`);
+        if(inv.nickel.bar > 0) bars.push(`Nickel Bar: ${inv.nickel.bar}`);
         
         if(char.wood || char.fish) invEmbed.addField("Resources", `${resources.join("")}`);
-        if(inv.copper.ore || inv.iron.ore) invEmbed.addField("Ores", `${ores.join("\n")}`);
-        if(inv.copper.bar || inv.iron.bar) invEmbed.addField("Bars", `${bars.join("\n")}`);
+        if(inv.copper.ore || inv.iron.ore || inv.silver.ore || inv.nickel.ore) invEmbed.addField("Ores", `${ores.join("\n")}`);
+
+        if(inv.copper.bar || inv.iron.bar || inv.silver.bar || inv.nickel.bar) invEmbed.addField("Bars", `${bars.join("\n")}`);
+        
         message.channel.send(invEmbed);
 
     });
