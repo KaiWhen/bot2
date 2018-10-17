@@ -109,7 +109,7 @@ module.exports.run = async(bot, message, args) => {
             }
             else if(material === "copper" && tool === "sword"){
                 if(inv.copper.bar < 8) return message.reply("Not enough Copper Bars!");
-                if(inv.copper.pick === 1) return message.reply("I don't think you need 2 of those...");
+                if(inv.copper.weapon === 1) return message.reply("I don't think you need 2 of those...");
                 inv.copper.bar -= 8;
                 inv.copper.weapon = 1;
                 forgeEmbed.setDescription("You just forged a Copper Sword!");
@@ -142,7 +142,7 @@ module.exports.run = async(bot, message, args) => {
             }
             else if(material === "iron" && tool === "sword"){
                 if(inv.iron.bar < 8) return message.reply("Not enough Iron Bars!");
-                if(inv.iron.pick === 1) return message.reply("I don't think you need 2 of those...");
+                if(inv.iron.weapon === 1) return message.reply("I don't think you need 2 of those...");
                 inv.iron.bar -= 8;
                 inv.iron.pick = 1;
                 forgeEmbed.setDescription("You just forged a Iron Sword!");
