@@ -43,7 +43,7 @@ module.exports.run = async(bot, message, args) => {
             let material = args[0];
             let tool = args[1];
 
-            if(inv.pick === args[0,1].join(" ")) return message.reply("You already have this equipped.");
+            if(inv.pick === args.join(" ")) return message.reply("You already have this equipped.");
 
             if(material === "copper" && tool === "pickaxe"){
                 if(!inv.copper.pick) return message.reply("You do not own a Copper Pickaxe.");
