@@ -144,7 +144,7 @@ module.exports.run = async(bot, message, args) => {
                 if(inv.iron.bar < 8) return message.reply("Not enough Iron Bars!");
                 if(inv.iron.weapon === 1) return message.reply("I don't think you need 2 of those...");
                 inv.iron.bar -= 8;
-                inv.iron.pick = 1;
+                inv.iron.weapon = 1;
                 forgeEmbed.setDescription("You just forged a Iron Sword!");
                 forgeEmbed.addField("Bars used", `8`);
                 inv.save()
