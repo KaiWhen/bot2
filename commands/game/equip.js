@@ -43,23 +43,25 @@ module.exports.run = async(bot, message, args) => {
             let material = args[0];
             let tool = args[1];
 
+            if(inv.pick === args[0,1].join(" ")) return message.reply("You already have this equipped.");
+
             if(material === "copper" && tool === "pickaxe"){
                 if(!inv.copper.pick) return message.reply("You do not own a Copper Pickaxe.");
-                inv.pick = "Copper Pickaxe";
+                inv.pick = "copper pickaxe";
                 inv.save()
                 .catch(err => console.log(err));
                 return message.channel.send(`**Equipped the Copper Pickaxe.**`);
             }
             else if(material === "copper" && tool === "axe"){
                 if(!inv.copper.axe) return message.reply("You do not own a Copper Axe.");
-                inv.axe = "Copper Axe";
+                inv.axe = "copper axe";
                 inv.save()
                 .catch(err => console.log(err));
                 return message.channel.send(`**Equipped the Copper Axe.**`);
             }
             else if(material === "copper" && tool === "sword"){
                 if(!inv.copper.weapon) return message.reply("You do not own a Copper Sword.");
-                inv.weapon = "Copper Sword";
+                inv.weapon = "copper sword";
                 inv.save()
                 .catch(err => console.log(err));
                 return message.channel.send(`**Equipped the Copper Sword.**`);
