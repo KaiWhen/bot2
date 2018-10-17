@@ -70,19 +70,22 @@ module.exports.run = async(bot, message, args) => {
                 return message.channel.send(`**Equipped the Copper Sword.**`);
             }
             else if(material === "iron" && tool === "pickaxe"){
-                inv.pick = "Iron Pickaxe";
+                if(!inv.iron.pick) return message.reply("You do not own a Iron Pickaxe.");
+                inv.pick = "iron pickaxe";
                 inv.save()
                 .catch(err => console.log(err));
                 return message.channel.send(`**Equipped the Iron Pickaxe.**`);
             }
             else if(material === "iron" && tool === "axe"){
-                inv.axe = "Iron Axe";
+                if(!inv.iron.axe) return message.reply("You do not own a Iron Axe.");
+                inv.axe = "iron axe";
                 inv.save()
                 .catch(err => console.log(err));
                 return message.channel.send(`**Equipped the Iron Axe.**`);
             }
             else if(material === "iron" && tool === "sword"){
-                inv.weapon = "Iron Sword";
+                if(!inv.iron.weapon) return message.reply("You do not own a Iron Sword.");
+                inv.weapon = "iron sword";
                 inv.save()
                 .catch(err => console.log(err));
                 return message.channel.send(`**Equipped the Iron Sword.**`);
