@@ -207,7 +207,8 @@ module.exports.run = async (bot, message, args) => {
                 let mineGainEmbed = new Discord.RichEmbed()
                     .setAuthor("Mining")
                     .setTitle("**You are back from mining!**")
-                    .setColor("#855e42");
+                    .setColor("#855e42")
+                    .setThumbnail(`${message.author.displayAvatarURL}`);
 
                 let oremined = [];
 
