@@ -54,7 +54,7 @@ module.exports.run = async(bot, message, args) => {
         if(char.smelt === true && Date.now() < timesmelt){
             let timesmeltleft = timesmelt - Date.now();
             let timesmeltObj = ms(timesmeltleft);
-            smeltEmbed.addField("Time Remaining", `\`\`\`${timesmeltObj.minutes} min(s) ${timesmeltObj.seconds} sec(s)\`\`\``);
+            smeltEmbed.addField("Time Remaining", `\`\`\`${timesmeltObj.hours} hr(s) ${timesmeltObj.minutes} min(s) ${timesmeltObj.seconds} sec(s)\`\`\``);
             return message.channel.send(smeltEmbed);
         }
 
