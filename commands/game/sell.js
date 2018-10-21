@@ -39,8 +39,9 @@ module.exports.run = async(bot, message, args) => {
 
                 let resource = args[0];
                 let amnt = args[1];
-                let check = char.wood - amnt;
+                let checkwood = char.wood - amnt;
                 let sellamnt = amnt*3;
+                let sellfish = amnt*5;
 
                 let sellEmbed = new Discord.RichEmbed()
                 .setTitle(`${message.author.username} - Sell💰`)
@@ -49,10 +50,8 @@ module.exports.run = async(bot, message, args) => {
                 .addField("Sold", `\`\`\`${amnt} ${resource}\`\`\``);
 
 
-                if(resource === "wood"){
-                    if(check < 0){
-                        return message.reply("Not enough wood!");
-                    }else{
+                if(resource.toLowerCase() === "wood"){
+                    if(checkwood < 0) return message.reply("Not enough wood!");
                         user.money = user.money + sellamnt;
                         char.wood = char.wood - amnt;
                         sellEmbed.addField("Amount", `\`\`\`${sellamnt} KaiKoins\`\`\``);
@@ -64,6 +63,17 @@ module.exports.run = async(bot, message, args) => {
                         .catch(err => console.log(err));
                         return message.channel.send(sellEmbed);
                     }
+                    else if(resource.toLowerCase() === "fish"){
+                        if((char.fish - amnt) < 0) return message.reply("Not enough fish!");
+                            user.money += sellfish;
+                            char.fish -= amnt;
+                            sellEmbed.addField("Amount", `\`\`\`${sellfish} KaiKoins\`\`\``);
+                            char.save()
+                            .catch(err => console.log(err));
+                            user.save()
+                            .catch(err => console.log(err));
+                            return message.channel.send(sellEmbed);
+                        }
 
 
                 }
