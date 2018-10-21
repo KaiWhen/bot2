@@ -55,7 +55,7 @@ module.exports.run = async(bot, message, args) => {
                     pickdur: 0,
                     axedur: 100,
                     weapondam: 0,
-                    copper: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    copper: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0, cp: 0},
                     iron: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
                     silver: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
                     nickel: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},

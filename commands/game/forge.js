@@ -57,7 +57,7 @@ module.exports.run = async(bot, message, args) => {
                     pickdur: 0,
                     axedur: 100,
                     weapondam: 0,
-                    copper: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
+                    copper: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0, cp: 0},
                     iron: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
                     silver: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
                     nickel: {ore: 0, bar: 0, weapon: 0, pick: 0, axe: 0},
@@ -85,7 +85,7 @@ module.exports.run = async(bot, message, args) => {
 
             if(!material || !tool) return message.reply("``,forge <material> <tool>``");
         
-            if(material === "copper" && tool === "pickaxe"){
+            if(material.toLowerCase() === "copper" && tool.toLowerCase() === "pickaxe"){
                 if(inv.copper.bar < 6) return message.reply("Not enough Copper Bars!");
                 if(inv.copper.pick === 1) return message.reply("I don't think you need 2 of those...");
                 inv.copper.bar -= 6;
@@ -96,7 +96,7 @@ module.exports.run = async(bot, message, args) => {
                 .catch(err => console.log(err));
                 return message.channel.send(forgeEmbed);
             }
-            else if(material === "copper" && tool === "axe"){
+            else if(material.toLowerCase() === "copper" && tool.toLowerCase() === "axe"){
                 if(inv.copper.bar < 7) return message.reply("Not enough Copper Bars!");
                 if(inv.copper.axe === 1) return message.reply("I don't think you need 2 of those...");
                 inv.copper.bar -= 7;
@@ -107,7 +107,7 @@ module.exports.run = async(bot, message, args) => {
                 .catch(err => console.log(err));
                 return message.channel.send(forgeEmbed);
             }
-            else if(material === "copper" && tool === "sword"){
+            else if(material.toLowerCase() === "copper" && tool.toLowerCase() === "sword"){
                 if(inv.copper.bar < 8) return message.reply("Not enough Copper Bars!");
                 if(inv.copper.weapon === 1) return message.reply("I don't think you need 2 of those...");
                 inv.copper.bar -= 8;
@@ -118,34 +118,45 @@ module.exports.run = async(bot, message, args) => {
                 .catch(err => console.log(err));
                 return message.channel.send(forgeEmbed);
             }
-            else if(material === "iron" && tool === "pickaxe"){
+            else if(material.toLowerCase() === "copper" && tool.toLowerCase() === "penis"){
+                if(inv.copper.bar < 69) return message.reply("Not enough Copper Bars!");
+                if(inv.copper.cp === 1) return message.reply("I don't think you need 2 of those...");
+                inv.copper.bar -= 69;
+                inv.copper.cp = 1;
+                forgeEmbed.setDescription("You just forged a Copper Penis! Have fun ;)");
+                forgeEmbed.addField("Bars used", `69`);
+                inv.save()
+                .catch(err => console.log(err));
+                return message.channel.send(forgeEmbed);
+            }
+            else if(material.toLowerCase() === "iron" && tool.toLowerCase() === "pickaxe"){
                 if(inv.iron.bar < 6) return message.reply("Not enough Iron Bars!");
                 if(inv.iron.pick === 1) return message.reply("I don't think you need 2 of those...");
                 inv.iron.bar -= 6;
                 inv.iron.pick = 1;
-                forgeEmbed.setDescription("You just forged a Iron Pickaxe!");
+                forgeEmbed.setDescription("You just forged an Iron Pickaxe!");
                 forgeEmbed.addField("Bars used", `6`);
                 inv.save()
                 .catch(err => console.log(err));
                 return message.channel.send(forgeEmbed);
             }
-            else if(material === "iron" && tool === "axe"){
+            else if(material.toLowerCase() === "iron" && tool.toLowerCase() === "axe"){
                 if(inv.iron.bar < 7) return message.reply("Not enough Iron Bars!");
                 if(inv.iron.axe === 1) return message.reply("I don't think you need 2 of those...");
                 inv.iron.bar -= 7;
                 inv.iron.axe = 1;
-                forgeEmbed.setDescription("You just forged a Iron Axe!");
+                forgeEmbed.setDescription("You just forged an Iron Axe!");
                 forgeEmbed.addField("Bars used", `7`);
                 inv.save()
                 .catch(err => console.log(err));
                 return message.channel.send(forgeEmbed);
             }
-            else if(material === "iron" && tool === "sword"){
+            else if(material.toLowerCase() === "iron" && tool.toLowerCase() === "sword"){
                 if(inv.iron.bar < 8) return message.reply("Not enough Iron Bars!");
                 if(inv.iron.weapon === 1) return message.reply("I don't think you need 2 of those...");
                 inv.iron.bar -= 8;
                 inv.iron.weapon = 1;
-                forgeEmbed.setDescription("You just forged a Iron Sword!");
+                forgeEmbed.setDescription("You just forged an Iron Sword!");
                 forgeEmbed.addField("Bars used", `8`);
                 inv.save()
                 .catch(err => console.log(err));

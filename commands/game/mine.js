@@ -73,7 +73,8 @@ module.exports.run = async (bot, message, args) => {
                         bar: 0,
                         weapon: 0,
                         pick: 0,
-                        axe: 0
+                        axe: 0,
+                        cp: 0
                     },
                     iron: {
                         ore: 0,
