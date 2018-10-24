@@ -106,7 +106,6 @@ module.exports.run = async(bot, message, args) => {
             inv.save()
             .catch(err => console.log(err));
             char.save()
-            .then(result => console.log(result))
             .catch(err => console.log(err));
         }
         else if(ore.toLowerCase() === "iron"){
@@ -179,7 +178,7 @@ module.exports.run = async(bot, message, args) => {
         let smeltEmbed = new Discord.RichEmbed()
         .setTitle("Furnace")
         .setColor("#C0C0C0")
-        .setThumbnail(`${message.channel.displayAvatarURL}`)
+        .setThumbnail(message.channel.displayAvatarURL)
         .setDescription(`Smelting ${ore} ore!`)
         .addField("Amount", `${amnt}`);
         message.channel.send(smeltEmbed);
