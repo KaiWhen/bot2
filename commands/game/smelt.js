@@ -178,7 +178,7 @@ module.exports.run = async(bot, message, args) => {
         let smeltEmbed = new Discord.RichEmbed()
         .setTitle("Furnace")
         .setColor("#C0C0C0")
-        .setThumbnail(message.channel.displayAvatarURL)
+        .setThumbnail(message.author.displayAvatarURL)
         .setDescription(`Smelting ${ore} ore!`)
         .addField("Amount", `${amnt}`);
         message.channel.send(smeltEmbed);
