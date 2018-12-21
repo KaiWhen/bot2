@@ -160,9 +160,9 @@ module.exports.run = async (bot, message, args) => {
 
                     message.channel.send("The fight is now underway...");
                     let rnd = Math.floor(Math.random()*1)+1;
-                    if(rnd == 1){
+                    if(rnd === 1){
                         return message.channel.send(`${message.author.username} wins! Wow ${tofight.user.username} what a loser.`);
-                    }else if(rnd == 2){
+                    }else if(rnd === 2){
                         return message.channel.send(`${tofight.user.username} wins! Wow ${message.author.username} what a loser.`);
                     }
 
