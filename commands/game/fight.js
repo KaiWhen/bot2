@@ -146,15 +146,15 @@ module.exports.run = async (bot, message, args) => {
                 }
 
 
-            const filter = m => m.author.id === message.author.id;
-            message.channel.send(`${tofight.id}, do you wish to have a scrap with ${message.author.id}? Please type Y or N`);
+            const filter = m => m.tofight.id === message.tofight.id;
+            message.channel.send(`@${tofight.id}, do you wish to have a scrap with @${message.author.id}? Please type Y or N`);
             
             message.channel.awaitMessages(filter, {
                 max: 1,
                 time: 20000
             }).then(collected => {
 
-                let agreement = tofight.collected.first().content;
+                let agreement = collected.first().content;
 
                 if(agreement.toUpperCase() === "Y"){
 
