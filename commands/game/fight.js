@@ -3,7 +3,7 @@ const charData = require("../../models/game.js");
 const invData = require("../../models/invData.js");
 const mongoose = require("mongoose");
 
-moodule.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
     let tofight = message.mentions.members.first();
     
