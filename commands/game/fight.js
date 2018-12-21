@@ -146,7 +146,7 @@ module.exports.run = async (bot, message, args) => {
                 }
 
 
-            const filter = m => m.tofight.id === message.tofight.id;
+            const filter = m => tofight.id === m.author.id;
             message.channel.send(`@${tofight.id}, do you wish to have a scrap with @${message.author.id}? Please type Y or N`);
             
             message.channel.awaitMessages(filter, {
