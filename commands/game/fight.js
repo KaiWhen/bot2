@@ -159,7 +159,7 @@ module.exports.run = async (bot, message, args) => {
                 if(agreement.toUpperCase() === "Y"){
 
                     message.channel.send("The fight is now underway...");
-                    let rnd = Math.floor(Math.random()*2);
+                    let rnd = Math.floor(Math.random()*1)+1;
                     if(rnd == 1){
                         return message.channel.send(`${message.author.username} wins! Wow ${tofight.user.username} what a loser.`);
                     }else if(rnd == 2){
