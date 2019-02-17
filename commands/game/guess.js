@@ -14,7 +14,7 @@ module.exports.run = async(bot, message, args) => {
     let guessEmbed = new Discord.RichEmbed()
     .setTitle("Guess the word!");
 
-    let wordrnd = Math.random(Math.floor()*wrd.length);
+    let wordrnd = Math.random(Math.floor()*2);
     
     guessEmbed.addField("Definition", wrd[wordrnd].defn);
 
