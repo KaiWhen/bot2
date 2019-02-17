@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const mongoose = require("mongoose");
 
 
 module.exports.run = async(bot, message, args) => {
@@ -17,7 +16,7 @@ module.exports.run = async(bot, message, args) => {
 
     let wordrnd = Math.random(Math.floor()*wrd.length);
     
-    guessEmbed.setDescription(`Definition: ${wrd[wordrnd].defn}`);
+    guessEmbed.addField("Definition", wrd[wordrnd].defn);
 
     message.channel.send(guessEmbed);
 
@@ -28,7 +27,7 @@ module.exports.run = async(bot, message, args) => {
 
         let guess = collected.first().content;
 
-        if(guess.toUpperCase() === wrd[wordrnd].name){
+        if(guess.toUpperCase() === wrd[wordrnd].word){
 
             message.channel.send(`${message.author.username} guessed the word right!`);
 
